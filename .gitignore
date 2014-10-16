@@ -4,3 +4,7 @@ sftp-config.json
 remote.htaccess
 
 *.htaccess
+
+*.sublime-project
+
+*.sublime-workspace
