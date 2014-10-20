@@ -3,8 +3,10 @@ sftp-config.json
 
 remote.htaccess
 
-*.htaccess
+local.htaccess
 
 *.sublime-project
 
 *.sublime-workspace
+
+includes/lib/Slim
