@@ -2,7 +2,7 @@
 function get_domain() {
 	$domain = '/';
 	if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) {
-	    $domain .= 'brudo/';
+	    $domain .= 'marco-desantis.it/';
 	}
 	return $domain;
 }
