@@ -261,26 +261,26 @@
         border-color: #065773;
     }
 
-body.dialettologia {
-    border-color: #FF7A00;
-}
+	body.dialettologia {
+	    border-color: #FF7A00;
+	}
 
-body.critica-letteraria {
-    border-color: #7A6A53;
-}
+	body.critica-letteraria {
+	    border-color: #7A6A53;
+	}
 
 
-body.linguistica {
-    border-color: #007FFF;
-}
+	body.linguistica {
+	    border-color: #007FFF;
+	}
 
-body.storiografia {
-    border-color: #EE184A;
-}
+	body.storiografia {
+	    border-color: #EE184A;
+	}
 
-body.giornalismo {
-    border-color: #054A45;
-}
+	body.giornalismo {
+	    border-color: #054A45;
+	}
 
 	
 	#wrapper, h1 div {	
@@ -330,7 +330,19 @@ body.giornalismo {
 		padding-right: 8px;
 	}
 	
+	.content-header {
+		margin-bottom: 20px;
+	}
 
+	.content-header p {
+		padding-left: 10px;
+	}
+
+	.content-header a:hover {
+		background-color: transparent;
+    	color: #CC342C;
+	}
+}	
 
 
 
