@@ -10,3 +10,7 @@ local.htaccess
 *.sublime-workspace
 
 includes/lib/Slim
+
+node_modules
+
+build
