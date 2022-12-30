@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import parseFrontMatter from "front-matter";
 
-interface Frontmatter {
+interface BookFrontmatter {
   title: string;
   date: string;
   slug: string;
@@ -10,31 +10,27 @@ interface Frontmatter {
 }
 
 export async function fetchBooksByCategory(category: string) {
-  const filePaths = await fs.promises.readdir(
-    `${__dirname}/../../content/${category}`
-  );
+  const categoryDir = `${__dirname}/../../content/${category}`;
+  const filePaths = await fs.promises.readdir(categoryDir);
 
   const bookPromises = filePaths
     .filter((path) => path.endsWith(".mdx"))
     .map(async (mdxFileName) => {
-      const mdxFilePath = path.join(
-        `${__dirname}/../../content/${category}`,
-        mdxFileName
-      );
+      const mdxFilePath = path.join(categoryDir, mdxFileName);
       const mdxFile = await fs.promises.readFile(mdxFilePath);
-      const { attributes } = parseFrontMatter<Frontmatter>(mdxFile.toString());
-      const defaultImageFileName = mdxFileName.replace(/\.mdx/, ".jpg");
-      const defaultImage = filePaths.includes(defaultImageFileName)
-        ? defaultImageFileName
+      const { attributes } = parseFrontMatter<BookFrontmatter>(
+        mdxFile.toString()
+      );
+      const maybeDefaultImageFileName = mdxFileName.replace(/\.mdx/, ".jpg");
+      const defaultImageFileName = filePaths.includes(maybeDefaultImageFileName)
+        ? maybeDefaultImageFileName
         : undefined;
-
-      console.log({ defaultImageFileName, defaultImage, filePaths });
 
       return {
         slug: mdxFileName.replace(/\.mdx/, ""),
         title: attributes.title,
         date: new Date(attributes.date),
-        image: attributes.image || defaultImage,
+        image: attributes.image || defaultImageFileName,
       };
     });
 
