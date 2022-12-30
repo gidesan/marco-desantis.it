@@ -1,0 +1,453 @@
+/* 
+* Skeleton V1.0.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 5/20/2011
+*/
+
+/* Table of Content
+==================================================
+	#Site Styles	
+	#Page Styles
+	#Media Queries
+	#Font-Face */
+	
+/* #Site Styles
+================================================== */
+
+    #breadcrumbs-3 {
+        font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+        color: #666;
+        font-size: 11px;
+    }
+    
+	#breadcrumbs-3 a:hover {
+		background-color: #FFF;
+	}		
+    
+	#breadcrumbs-3 ul a:hover {
+		/*FIXME*/background-color: inherit;
+	}		
+
+        
+  .xbreadcrumbs#breadcrumbs-3 {
+        background: none;
+    } 
+    .xbreadcrumbs#breadcrumbs-3 LI A {
+        text-decoration: underline;
+        /*color: #0A8ECC;*/
+    }
+    .xbreadcrumbs#breadcrumbs-3 LI A:HOVER, .xbreadcrumbs#breadcrumbs-3 LI.hover A { text-decoration: none; }
+    .xbreadcrumbs#breadcrumbs-3 LI.current A {
+        /*color: #333333;*/
+        text-decoration: none; 
+    }
+    .xbreadcrumbs#breadcrumbs-3 LI {
+        border-right: none;
+        background: url(../images/separator-arrow.gif) no-repeat right center;
+        padding-right: 15px;
+        padding-left: 10px;
+    }
+    .xbreadcrumbs#breadcrumbs-3 LI.current { background: none; font-weight: bold;}
+    .xbreadcrumbs#breadcrumbs-3 LI UL LI { background: none; padding: 0;  }
+    
+    
+    
+    
+    
+    
+    
+    
+                
+
+	blockquote {	
+		text-align: left;
+/*		font-style: normal; */
+	}
+	
+	blockquote, blockquote p {	
+		font-style: normal;	
+	}
+	
+	cite {
+		font-style: normal;
+		margin-top: 20px;
+	}
+	/* */
+	#top-menu {
+		margin-top: 20px;
+	}
+
+	#top-menu li {
+		display:inline;
+		font-weight: bold;	
+	}
+	
+	#top-menu li a {
+		padding: 5px;
+		padding-top: 25px;
+		color: #555;		
+		text-decoration: none;			
+	}	
+	
+	#top-menu li a:hover, 	#top-menu li.current a {
+		background-color: #CC342C;
+		color: #FFF;
+		text-decoration: none;		
+	}	
+	
+	/*
+	.etnografia #top-menu li a:hover, .etnografia #top-menu li .current a {
+		background-color: #8E6FAA;
+	}
+	*/
+	
+	h1 {
+		text-transform: none;
+		font-style: italic; 		 			
+	}
+
+    h2.page-title {
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+        
+        #header a {
+            text-decoration: none;            
+        }
+	
+	.breadcrumb {
+		margin-top: -25px;		
+		font-size: 15px;
+		line-height: 30px;
+		margin-bottom: 15px;
+	}	
+		
+	#header {	
+		text-align: center;
+	}	
+
+	h1 div {	
+		font-size: 21px;
+		line-height: 30px; 
+ 		margin-top: -10px;
+		font-style: italic;
+		text-transform: none;
+	}	
+/*
+	h1 .dropcaps {
+		font-size: 60px;
+	}	
+*/
+	#footer {
+		margin-top: 20px;
+		text-align: center;	
+	}
+	
+
+	
+	#left-categories {
+		text-align:right;
+	}	
+
+	.categories li {
+		margin-bottom: 25px;
+	}	
+	
+	.categories a {
+		text-decoration: none;
+		padding-left: 3px;
+		padding-right: 3px;		
+	}	
+	
+
+	.categories a:hover, .categories .current a {
+		color: #FFF;
+/*		background-color: #007fff;*/
+		-moz-box-shadow: 5px 0 20px #DDDDDD;
+		-webkit-box-shadow: 5px 0 20px #DDDDDD;
+		box-shadow: 5px 0 20px #DDDDDD;
+		border: 1px solid #CCCCCC;		
+	}	
+	
+    /* */
+	.poesia a:hover, .poesia .current a {
+		background-color: #CC342C;
+	}		
+
+	.etnografia a:hover, .etnografia .current a,
+    .etnografia #top-menu li a:hover, .etnografia #top-menu li .current a {
+		background-color: #8E6FAA;
+	}		
+
+	.narrativa a:hover, .narrativa .current a,
+    .narrativa #top-menu li a:hover, .narrativa #top-menu li .current a {
+		background-color: #065773;
+	}		
+	
+	.dialettologia a:hover, .dialettologia .current a,
+    .dialettologia #top-menu li a:hover, .dialettologia #top-menu li .current a {
+		background-color: #FF7A00;
+	}		
+	
+	.critica-letteraria a:hover, .critica-letteraria .current a,
+    .critica-letteraria #top-menu li a:hover, .critica-letteraria #top-menu li .current a {
+		background-color: #7A6A53;
+	}		
+
+	.linguistica a:hover, .linguistica .current a,
+    .linguistica #top-menu li a:hover, .linguistica #top-menu li .current a {
+		background-color: #007FFF;
+	}		
+	
+	.storiografia a:hover, .storiografia .current a,
+    .storiografia #top-menu li a:hover, .storiografia #top-menu li .current a {
+		background-color: #EE184A;
+	}		
+	
+	.giornalismo a:hover, .giornalismo .current a,
+    .giornalismo #top-menu li a:hover, .giornalismo #top-menu li .current a {
+		background-color: #054A45;
+	}		
+
+	.description a:hover {
+		color: #FFF;
+		text-decoration: none;
+		padding-left: 2px;
+		padding-right: 2px;		
+	}
+
+	.fancybox-inner a:hover {
+		background-color: inherit;
+	}
+
+	
+	#wrapper {
+		margin-top: 10px;
+		padding-top: 10px;
+		padding-bottom: 20px;		
+		-moz-box-shadow: 1px 0 20px #DDDDDD;
+		-webkit-box-shadow: 1px 0 20px #DDDDDD;
+		box-shadow: 1px 0 20px #DDDDDD;
+		border: 1px solid #CCCCCC;
+		background: #FFF;
+		font-size: 16px;
+		text-align: justify;
+		
+/*
+		-moz-box-shadow: 0 0 4px #000;
+		-webkit-box-shadow: 0 0 4px #000;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Glow(color=#666666,strength=3)";
+		filter:
+				progid:DXImageTransform.Microsoft.Shadow(color=#666666,direction=0,strength=3)
+				progid:DXImageTransform.Microsoft.Shadow(color=#666666,direction=90,strength=3)
+				progid:DXImageTransform.Microsoft.Shadow(color=#666666,direction=180,strength=3)
+				progid:DXImageTransform.Microsoft.Shadow(color=#666666,direction=270,strength=3);
+		box-shadow: 0 0 4px #000;	*/			
+	}	
+	
+	body {	
+		background: /*url("../images/bg.png") repeat scroll 0 0 */#EEEEEE;	
+		border-top: solid 5px #CC342C;
+	}
+	
+	body.etnografia {	
+		border-color: #8E6FAA;
+	}
+
+    body.narrativa {
+        border-color: #065773;
+    }
+
+	body.dialettologia {
+	    border-color: #FF7A00;
+	}
+
+	body.critica-letteraria {
+	    border-color: #7A6A53;
+	}
+
+
+	body.linguistica {
+	    border-color: #007FFF;
+	}
+
+	body.storiografia {
+	    border-color: #EE184A;
+	}
+
+	body.giornalismo {
+	    border-color: #054A45;
+	}
+
+	
+	#wrapper, h1 div {	
+		color: #555;
+		font-family: "Palatino Linotype",Palatino,Palladio,"URW Palladio L","Book Antiqua",Baskerville,"Bookman Old Style","Bitstream Charter","Nimbus Roman No9 L",Garamond,"Apple Garamond","ITC Garamond Narrow","New Century 				Schoolbook","Century Schoolbook","Century Schoolbook L",Georgia,serif;	
+	}	
+	
+	h3 a {	
+		color: #555;
+	}	
+
+	.quote {
+		text-align: left;
+		font-style: normal;
+	}
+
+
+    li#nav-opere {
+        display: none;
+    }
+
+    #body-wrap select {
+        display: none;
+    }
+
+    #list-wrapper ol {
+    	margin-bottom: 50px !important;
+    	margin-right: 5px; /*for mobile!*/
+    }
+
+    .pagination ul li a {
+    	font-size: 18px;
+    	text-decoration: none;
+    }
+
+    .pagination ul li.selected a {    	
+    	text-decoration: underline;
+    }
+
+    .pagination ul li a:hover {    	
+    	background: #FFF;
+    	text-decoration: underline;
+    }
+
+	.page-list li {
+		display:inline;
+		padding-right: 8px;
+	}
+	
+	.content-header {
+		margin-bottom: 20px;
+	}
+
+	.content-header p {
+		padding-left: 10px;
+	}
+
+	.content-header a:hover {
+		background-color: transparent;
+    	color: #CC342C;
+	}
+}	
+
+
+
+/* #Page Styles
+================================================== */
+
+/* #Media Queries
+================================================== */
+	
+	/* iPad Portrait/Browser */
+	@media only screen and (min-width: 768px) and (max-width: 991px) {
+	}
+	
+	/* Mobile/Browser */
+	@media only screen and (max-width: 767px) {
+		h1, #top-menu, .categories  h3 {	
+			text-align: center;
+		}	
+		
+		hr {
+			display:none;
+		}
+		
+		#left-categories {
+			margin-top: 20px;
+		}
+
+        .description p {
+            padding: 10px;
+        }
+
+        #breadcrumbs-3 {
+            margin-top: 15px;
+        }
+             /*
+        .tinynav {
+            display: block;
+            margin: 0 auto;
+        }  */
+
+        #br-home, #br-opere {
+            display:none !important;
+        }
+
+        #breadcrumbs-3{
+            display: none;
+        }
+
+        #top-menu {
+            display: none;
+        }
+
+        #body-wrap select {
+            display: inline-block;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+    }
+
+
+@media only screen and (min-width: 768px) {
+
+    .imagedropshadow {
+        padding: 5px;
+        border: solid 1px #EFEFEF;
+    }
+
+    a:hover img.imagedropshadow {
+        border: solid 1px #CCC;
+        -moz-box-shadow: 1px 1px 5px #999;
+        -webkit-box-shadow: 1px 1px 5px #999;
+        box-shadow: 1px 1px 5px #999;
+    }
+
+}
+
+
+
+/* Mobile Landscape/Browser */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+	
+	/* Anything smaller than standard 960 */
+	@media only screen and (max-width: 959px) {}
+	
+	/* iPad Portrait Only */
+	@media only screen and (min-width: 768px) and (max-width: 991px) and (max-device-width: 1000px) {}
+	
+	/* Mobile Only */
+	@media only screen and (max-width: 767px) and (max-device-width: 1000px) {}
+	
+	/* Mobile Landscape Only */
+	@media only screen and (min-width: 480px) and (max-width: 767px) and (max-device-width: 1000px) {}
+	
+
+/* #Font-Face
+================================================== */
+		
+/*	@font-face {
+	    font-family: 'fanwoodtext';
+	    src: url('../fonts/fanwoodtext-webfont.eot');
+	    src: url('../fonts/fanwoodtext-webfont.eot?iefix') format('eot'),
+	         url('../fonts/fanwoodtext-webfont.woff') format('woff'),
+	         url('../fonts/fanwoodtext-webfont.ttf') format('truetype'),
+	         url('../fonts/Fontfanwoodtext-webfontName.svg#webfontZam02nTh') format('svg');
+	    font-weight: normal;
+	    font-style: normal; }
+*/
