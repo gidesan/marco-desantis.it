@@ -10,9 +10,14 @@ import {
 } from "@remix-run/react";
 import LegacyBreadcrumbs from "./legacy/LegacyBreadcrumbs";
 import LegacyScripts from "./legacy/LegacyScripts";
-import LegacyStylesheets from "./legacy/LegacyStylesheets";
 import LegacyDesktopNavMenu from "./legacy/LegacyDesktopNavMenu";
 import LegacyMobileNavMenu from "./legacy/LegacyMobileNavMenu";
+
+import baseStyles from "./legacy/stylesheets/base.css";
+import skeletonStyles from "./legacy/stylesheets/skeleton.css";
+import xbreadcrumbsStyles from "./legacy/stylesheets/xbreadcrumbs.css";
+import layoutStyles from "./legacy/stylesheets/layout.css";
+//"legacy/javascripts/fancybox/jquery.fancybox.css",
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -29,7 +34,7 @@ export default function App() {
       <head>
         <Meta />
         <Links />
-        <LegacyStylesheets />
+
         <LegacyScripts />
       </head>
       <body className={bodyClass}>
@@ -63,5 +68,11 @@ export default function App() {
         <LiveReload />
       </body>
     </html>
+  );
+}
+
+export function links() {
+  return [baseStyles, skeletonStyles, xbreadcrumbsStyles, layoutStyles].map(
+    (style) => ({ rel: "stylesheet", href: style })
   );
 }
