@@ -1,15 +1,26 @@
 import fs from "fs";
 import path from "path";
 import parseFrontMatter from "front-matter";
+import { marked } from "marked";
+import DOMPurify from "isomorphic-dompurify";
 
 interface BookFrontmatter {
-  title: string;
   date: string;
-  slug: string;
-  image?: string;
+  imageUrl: string;
+  title: string;
 }
 
-export async function fetchBooksByCategory(category: string) {
+export interface BookAttributes {
+  content: string;
+  date: Date;
+  imageUrl: string;
+  slug: string;
+  title: string;
+}
+
+export async function fetchBooksByCategory(
+  category: string
+): Promise<BookAttributes[]> {
   const categoryDir = `${__dirname}/../../content/${category}`;
   const filePaths = await fs.promises.readdir(categoryDir);
 
@@ -18,19 +29,20 @@ export async function fetchBooksByCategory(category: string) {
     .map(async (mdxFileName) => {
       const mdxFilePath = path.join(categoryDir, mdxFileName);
       const mdxFile = await fs.promises.readFile(mdxFilePath);
-      const { attributes } = parseFrontMatter<BookFrontmatter>(
+      const { attributes, body } = parseFrontMatter<BookFrontmatter>(
         mdxFile.toString()
       );
-      const maybeDefaultImageFileName = mdxFileName.replace(/\.mdx/, ".jpg");
-      const defaultImageFileName = filePaths.includes(maybeDefaultImageFileName)
-        ? maybeDefaultImageFileName
-        : undefined;
+      const imageFileName = mdxFileName.replace(/\.mdx/, ".jpg");
+      const imageUrl = `/images/books/${imageFileName}`;
+
+      const content = DOMPurify.sanitize(marked.parse(body));
 
       return {
-        slug: mdxFileName.replace(/\.mdx/, ""),
-        title: attributes.title,
+        content,
         date: new Date(attributes.date),
-        image: attributes.image || defaultImageFileName,
+        imageUrl,
+        title: attributes.title,
+        slug: mdxFileName.replace(/\.mdx/, ""),
       };
     });
 
