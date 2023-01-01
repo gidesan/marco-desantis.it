@@ -1,12 +1,10 @@
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { useEffect } from "react";
-import Fancybox from "../../components/Fancybox";
 
+import Fancybox from "../../components/Fancybox";
 import { fetchBooksByCategory } from "../../services/books.server";
 
 export default function BookCategory() {
-  useEffect(() => {});
   const data = useLoaderData<typeof loader>();
   return (
     <div id="features">
