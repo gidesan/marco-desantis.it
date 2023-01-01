@@ -24,27 +24,28 @@ export async function fetchBooksByCategory(
   const categoryDir = `${__dirname}/../../content/${category}`;
   const filePaths = await fs.promises.readdir(categoryDir);
 
-  const bookPromises = filePaths
-    .filter((path) => path.endsWith(".mdx"))
-    .map(async (mdxFileName) => {
-      const mdxFilePath = path.join(categoryDir, mdxFileName);
-      const mdxFile = await fs.promises.readFile(mdxFilePath);
-      const { attributes, body } = parseFrontMatter<BookFrontmatter>(
-        mdxFile.toString()
-      );
-      const imageFileName = mdxFileName.replace(/\.mdx/, ".jpg");
-      const imageUrl = `/images/books/${imageFileName}`;
+  const unsortedBooks = await Promise.all(
+    filePaths
+      .filter((path) => path.endsWith(".mdx"))
+      .map(async (mdxFileName) => {
+        const mdxFilePath = path.join(categoryDir, mdxFileName);
+        const mdxFile = await fs.promises.readFile(mdxFilePath);
+        const { attributes, body } = parseFrontMatter<BookFrontmatter>(
+          mdxFile.toString()
+        );
+        const imageFileName = mdxFileName.replace(/\.mdx/, ".jpg");
+        const imageUrl = `/images/books/${imageFileName}`;
 
-      const content = DOMPurify.sanitize(marked.parse(body));
+        const content = DOMPurify.sanitize(marked.parse(body));
 
-      return {
-        content,
-        date: new Date(attributes.date),
-        imageUrl,
-        title: attributes.title,
-        slug: mdxFileName.replace(/\.mdx/, ""),
-      };
-    });
-
-  return Promise.all(bookPromises);
+        return {
+          content,
+          date: new Date(attributes.date),
+          imageUrl,
+          title: attributes.title,
+          slug: mdxFileName.replace(/\.mdx/, ""),
+        };
+      })
+  );
+  return unsortedBooks.sort((a, b) => b.date.getTime() - a.date.getTime());
 }
