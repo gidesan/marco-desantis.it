@@ -16,7 +16,7 @@ import baseStyles from "./legacy/stylesheets/base.css";
 import skeletonStyles from "./legacy/stylesheets/skeleton.css";
 import xbreadcrumbsStyles from "./legacy/stylesheets/xbreadcrumbs.css";
 import layoutStyles from "./legacy/stylesheets/layout.css";
-//"legacy/javascripts/fancybox/jquery.fancybox.css",
+import fancyboxStyles from "@fancyapps/ui/dist/fancybox.css";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -69,7 +69,11 @@ export default function App() {
 }
 
 export function links() {
-  return [baseStyles, skeletonStyles, xbreadcrumbsStyles, layoutStyles].map(
-    (style) => ({ rel: "stylesheet", href: style })
-  );
+  return [
+    baseStyles,
+    skeletonStyles,
+    xbreadcrumbsStyles,
+    layoutStyles,
+    fancyboxStyles,
+  ].map((style) => ({ rel: "stylesheet", href: style }));
 }
