@@ -9,7 +9,6 @@ import {
   useMatches,
 } from "@remix-run/react";
 import LegacyBreadcrumbs from "./legacy/LegacyBreadcrumbs";
-import LegacyScripts from "./legacy/LegacyScripts";
 import LegacyDesktopNavMenu from "./legacy/LegacyDesktopNavMenu";
 import LegacyMobileNavMenu from "./legacy/LegacyMobileNavMenu";
 
@@ -34,8 +33,6 @@ export default function App() {
       <head>
         <Meta />
         <Links />
-
-        <LegacyScripts />
       </head>
       <body className={bodyClass}>
         <div id="body-wrap" className="container">
