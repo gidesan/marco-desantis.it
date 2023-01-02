@@ -24,6 +24,9 @@ export async function fetchBooksByCategory(
   const categoryDir = `${__dirname}/../../app/content/${category}`;
   const filePaths = await fs.promises.readdir(categoryDir);
 
+  const dirnameContents = await fs.promises.readdir(__dirname);
+  console.log({ dirnameContents });
+
   const unsortedBooks = await Promise.all(
     filePaths
       .filter((path) => path.endsWith(".mdx"))
