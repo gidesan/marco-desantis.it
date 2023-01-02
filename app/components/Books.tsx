@@ -6,7 +6,7 @@ interface Props {
 
 interface Book {
   content: string;
-  imageUrl: string;
+  imageUrl: string | "NONE";
   slug: string;
   title: string;
 }
@@ -18,20 +18,24 @@ export default function Books({ data }: Props) {
         {data.map(({ content, imageUrl, slug, title }) => (
           <div key={slug}>
             <br className="clear" />
-            <div className="four columns offset-by-four book-image">
-              <a className="fancybox" data-fancybox="gallery" href={imageUrl}>
-                <img
-                  className="four columns imagedropshadow"
-                  src={imageUrl}
-                  alt={title}
-                  onError={({ currentTarget }) => {
-                    currentTarget.onerror = null;
-                    currentTarget.src = "/images/book-image-unavailable.png";
-                  }}
-                />
-              </a>
-            </div>
-            <div className="four columns offset-by-one description">
+            {imageUrl !== "NONE" ? (
+              <div className="four columns offset-by-four book-image">
+                <a className="fancybox" data-fancybox="gallery" href={imageUrl}>
+                  <img
+                    className="four columns imagedropshadow"
+                    src={imageUrl}
+                    alt={title}
+                  />
+                </a>
+              </div>
+            ) : null}
+            <div
+              className={
+                imageUrl !== "NONE"
+                  ? "four columns offset-by-one description"
+                  : "four columns offset-by-nine description"
+              }
+            >
               <div dangerouslySetInnerHTML={{ __html: content }} />
             </div>
             <br className="clear" />

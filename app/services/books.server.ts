@@ -34,7 +34,8 @@ export async function fetchBooksByCategory(
           mdxFile.toString()
         );
         const imageFileName = mdxFileName.replace(/\.mdx/, ".jpg");
-        const imageUrl = `/images/books/${imageFileName}`;
+        const imageUrl =
+          attributes.imageUrl || `/images/books/${imageFileName}`;
 
         const content = DOMPurify.sanitize(marked.parse(body));
 
