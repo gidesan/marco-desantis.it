@@ -21,7 +21,7 @@ export interface BookAttributes {
 export async function fetchBooksByCategory(
   category: string
 ): Promise<BookAttributes[]> {
-  const categoryDir = path.join(process.cwd(), `app/content/${category}`);
+  const categoryDir = path.join(process.cwd(), `./content/${category}`);
   console.log({ categoryDir });
   const filePaths = await fs.promises.readdir(categoryDir);
 
