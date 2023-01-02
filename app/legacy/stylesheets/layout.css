@@ -213,7 +213,7 @@
 	}		
 
 	.description a:hover {
-		color: #FFF;
+		color: #555;
 		text-decoration: none;
 		padding-left: 2px;
 		padding-right: 2px;		
@@ -302,7 +302,7 @@
         display: none;
     }
 
-    #body-wrap select {
+    #body-wrap .mobile-nav-menu {
         display: none;
     }
 

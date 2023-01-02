@@ -1,4 +1,3 @@
-import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -8,9 +7,9 @@ import {
   ScrollRestoration,
   useMatches,
 } from "@remix-run/react";
-import LegacyBreadcrumbs from "./legacy/LegacyBreadcrumbs";
-import LegacyDesktopNavMenu from "./legacy/LegacyDesktopNavMenu";
-import LegacyMobileNavMenu from "./legacy/LegacyMobileNavMenu";
+import Breadcrumbs from "./components/Breadcrumbs";
+import DesktopNavMenu from "./components/DesktopNavMenu";
+import MobileNavMenu from "./components/MobileNavMenu";
 
 import baseStyles from "./legacy/stylesheets/base.css";
 import skeletonStyles from "./legacy/stylesheets/skeleton.css";
@@ -18,11 +17,13 @@ import xbreadcrumbsStyles from "./legacy/stylesheets/xbreadcrumbs.css";
 import layoutStyles from "./legacy/stylesheets/layout.css";
 import fancyboxStyles from "@fancyapps/ui/dist/fancybox.css";
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "Marco Ignazio de Santis",
-  viewport: "width=device-width,initial-scale=1",
-});
+export function meta() {
+  return {
+    charset: "utf-8",
+    title: "Marco Ignazio de Santis",
+    viewport: "width=device-width,initial-scale=1",
+  };
+}
 
 export default function App() {
   const matches = useMatches();
@@ -36,8 +37,8 @@ export default function App() {
       </head>
       <body className={bodyClass}>
         <div id="body-wrap" className="container">
-          <LegacyDesktopNavMenu />
-          <LegacyMobileNavMenu />
+          <DesktopNavMenu />
+          <MobileNavMenu />
           <div id="wrapper" className="container">
             <div
               id="header"
@@ -53,7 +54,7 @@ export default function App() {
               </a>
               <hr />
             </div>
-            <LegacyBreadcrumbs />
+            <Breadcrumbs />
             <Outlet />
           </div>
           <div id="footer" className="sixteen columns">

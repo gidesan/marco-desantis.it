@@ -1,8 +1,9 @@
 import { WORKS } from "../constants";
 
-export default function LegacyMobileNavMenu() {
+export default function MobileNavMenu() {
   return (
     <select
+      className="mobile-nav-menu"
       defaultValue=""
       onChange={(e) => {
         window.location.replace(e.target.value);

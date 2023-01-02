@@ -1,14 +1,14 @@
 import { useMatches } from "@remix-run/react";
 import { WORKS } from "../constants";
 
-export default function LegacyBreadcrumbs() {
+export default function Breadcrumbs() {
   const matches = useMatches();
   const lastMatch = matches.pop();
   const pathname = lastMatch?.pathname;
 
   if (!pathname || pathname === "/") return null;
 
-  const currentNode = WORKS.find(([href, label]) => href === pathname);
+  const currentNode = WORKS.find(([href, label]) => pathname.includes(href));
 
   const [, label] = currentNode || ["", ""];
 

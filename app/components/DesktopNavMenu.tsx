@@ -6,7 +6,7 @@ const items = [
   ["mailto:marcoignazio.desantis@gmail.com", "Contatti"],
 ];
 
-export default function LegacyDesktopNavMenu() {
+export default function DesktopNavMenu() {
   const matches = useMatches();
   const lastMatch = matches.pop();
   const url = lastMatch?.pathname;
