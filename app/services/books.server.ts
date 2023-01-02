@@ -22,8 +22,9 @@ export async function fetchBooksByCategory(
   category: string
 ): Promise<BookAttributes[]> {
   console.log("fetchBooksByCategory");
-  const dirnameContents = await fs.promises.readdir(__dirname);
-  console.log({ dirnameContents });
+  const contentDir = path.join(process.cwd(), "app/content/poesia");
+  const files = await fs.promises.readdir(contentDir);
+  console.log({ files });
 
   const categoryDir = `${__dirname}/../../app/content/${category}`;
   const filePaths = await fs.promises.readdir(categoryDir);
