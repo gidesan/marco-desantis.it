@@ -21,7 +21,7 @@ export interface BookAttributes {
 export async function fetchBooksByCategory(
   category: string
 ): Promise<BookAttributes[]> {
-  const categoryDir = `${__dirname}/../../content/${category}`;
+  const categoryDir = `${__dirname}/../../app/content/${category}`;
   const filePaths = await fs.promises.readdir(categoryDir);
 
   const unsortedBooks = await Promise.all(
