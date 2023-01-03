@@ -16,14 +16,16 @@ import skeletonStyles from "./legacy/stylesheets/skeleton.css";
 import xbreadcrumbsStyles from "./legacy/stylesheets/xbreadcrumbs.css";
 import layoutStyles from "./legacy/stylesheets/layout.css";
 import fancyboxStyles from "@fancyapps/ui/dist/fancybox.css";
+import type { MetaFunction } from "@remix-run/node";
+import { pageTitle } from "./helpers";
 
-export function meta() {
+export const meta: MetaFunction = ({ location }) => {
   return {
     charset: "utf-8",
-    title: "Marco Ignazio de Santis",
+    title: pageTitle(location.pathname),
     viewport: "width=device-width,initial-scale=1",
   };
-}
+};
 
 export default function App() {
   const matches = useMatches();

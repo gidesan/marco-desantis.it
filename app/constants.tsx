@@ -8,3 +8,5 @@ export const WORKS = [
   ["/opere/linguistica", "Linguistica"],
   ["/opere/giornalismo", "Giornalismo"],
 ];
+
+export const AUTHOR = "Marco Ignazio de Santis";
