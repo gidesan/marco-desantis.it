@@ -10,6 +10,9 @@ function pageTitlePrefix(pathname: string) {
 
   const pageId = pathname.split("/").pop() || "";
 
+  //workaround
+  if (pageId === "tutti") return "Critica Letteraria";
+
   return pageId
     ? pageId
         .split("-")
