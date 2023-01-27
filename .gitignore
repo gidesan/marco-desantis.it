@@ -1,16 +1,6 @@
-
-sftp-config.json
-
-remote.htaccess
-
-local.htaccess
-
-*.sublime-project
-
-*.sublime-workspace
-
-includes/lib/Slim
-
 node_modules
 
-build
+/.cache
+/public/build
+/.netlify
+.env
