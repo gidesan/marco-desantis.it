@@ -18,3 +18,4 @@
 
 [functions]
   included_files = ["./content/**"]
+  node_version = "18"
