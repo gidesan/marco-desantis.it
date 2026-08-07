@@ -2,11 +2,11 @@
 document.querySelectorAll("[data-nav-toggle]").forEach((btn) => {
   btn.addEventListener("click", () => {
     const mobile = document.querySelector("[data-nav-mobile]");
-    mobile.classList.toggle("is-open");
-    const isOpen = mobile.classList.contains("is-open");
+    mobile.classList.toggle("hidden");
+    const isOpen = !mobile.classList.contains("hidden");
     btn.setAttribute("aria-expanded", String(isOpen));
-    btn.querySelector("[data-icon-menu]").style.display = isOpen ? "none" : "block";
-    btn.querySelector("[data-icon-close]").style.display = isOpen ? "block" : "none";
+    btn.querySelector("[data-icon-menu]").classList.toggle("hidden", isOpen);
+    btn.querySelector("[data-icon-close]").classList.toggle("hidden", !isOpen);
   });
 });
 

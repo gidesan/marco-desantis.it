@@ -3,176 +3,292 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Marco Ignazio de Santis — Poeta, scrittore e giornalista</title>
-<meta name="description" content="Sito personale di Marco Ignazio de Santis, poeta, scrittore e giornalista molfettese. Poesia, narrativa, critica letteraria, storiografia, etnografia e dialettologia." />
+<title>Marco Ignazio de Santis | Poeta e Scrittore</title>
+<meta name="description" content="Marco Ignazio de Santis - Poeta, scrittore e giornalista italiano. Scopri le sue opere di poesia, narrativa, critica letteraria e giornalismo." />
 <link rel="icon" href="data:," />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
 
-<nav class="nav">
-  <div class="container nav__inner">
-    <a href="index.html" class="nav__logo">Marco I. de Santis</a>
-    <ul class="nav__links">
-      <li><a href="index.html" class="nav__link is-active">Home</a></li>
-      <li><a href="biografia.html" class="nav__link">Biografia</a></li>
-      <li><a href="opere.html" class="nav__link">Opere</a></li>
-      <li><a href="contatti.html" class="nav__link">Contatti</a></li>
-    </ul>
-    <button class="nav__toggle" data-nav-toggle aria-label="Apri il menu" aria-expanded="false">
-      <svg data-icon-menu width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-      <svg data-icon-close width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
-    </button>
-  </div>
-  <div class="nav__mobile" data-nav-mobile>
-    <div class="container">
-      <ul>
-        <li><a href="index.html" class="is-active">Home</a></li>
-        <li><a href="biografia.html">Biografia</a></li>
-        <li><a href="opere.html">Opere</a></li>
-        <li><a href="contatti.html">Contatti</a></li>
+<!-- Tailwind (CDN, temporaneo: quando passeremo ad Astro sarà sostituito da Tailwind via npm) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: ["class"],
+    theme: {
+      container: { center: true, padding: "2rem", screens: { "2xl": "1200px" } },
+      extend: {
+        fontFamily: {
+          serif: ["Cormorant Garamond", "Georgia", "serif"],
+          body: ["ui-sans-serif", "system-ui", "sans-serif"],
+        },
+        colors: {
+          border: "hsl(var(--border))",
+          input: "hsl(var(--input))",
+          ring: "hsl(var(--ring))",
+          background: "hsl(var(--background))",
+          foreground: "hsl(var(--foreground))",
+          primary: { DEFAULT: "hsl(var(--primary))", foreground: "hsl(var(--primary-foreground))" },
+          secondary: { DEFAULT: "hsl(var(--secondary))", foreground: "hsl(var(--secondary-foreground))" },
+          muted: { DEFAULT: "hsl(var(--muted))", foreground: "hsl(var(--muted-foreground))" },
+          accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" },
+          card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
+          paper: "hsl(var(--paper))",
+          "paper-dark": "hsl(var(--paper-dark))",
+          terracotta: "hsl(var(--terracotta))",
+          "terracotta-light": "hsl(var(--terracotta-light))",
+        },
+      },
+    },
+  };
+</script>
+<style type="text/tailwindcss">
+  @layer base {
+    :root {
+      --background: 40 33% 96%;
+      --foreground: 20 10% 15%;
+      --card: 40 30% 94%;
+      --card-foreground: 20 10% 15%;
+      --primary: 15 55% 45%;
+      --primary-foreground: 40 33% 96%;
+      --secondary: 35 25% 88%;
+      --secondary-foreground: 20 10% 25%;
+      --muted: 35 20% 90%;
+      --muted-foreground: 20 8% 45%;
+      --accent: 25 40% 50%;
+      --accent-foreground: 40 33% 96%;
+      --border: 30 20% 85%;
+      --input: 30 20% 85%;
+      --ring: 15 55% 45%;
+      --paper: 42 35% 95%;
+      --paper-dark: 38 28% 90%;
+      --terracotta: 15 55% 45%;
+      --terracotta-light: 15 50% 55%;
+    }
+    body { @apply bg-background text-foreground font-body antialiased; }
+    h1, h2, h3, h4, h5, h6 { @apply font-serif; }
+  }
+  @layer components {
+    .literary-divider-wide { @apply w-32 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent mx-auto; }
+    .elegant-underline { @apply relative inline-block; }
+    .elegant-underline::after {
+      content: '';
+      @apply absolute bottom-0 left-0 w-full h-px bg-primary/50 origin-left scale-x-0 transition-transform duration-300;
+    }
+    .elegant-underline:hover::after { @apply scale-x-100; }
+  }
+  @layer utilities {
+    .animate-fade-up { animation: fade-up 0.6s ease-out forwards; }
+    .animate-fade-up-delay-1 { animation: fade-up 0.6s ease-out 0.1s forwards; opacity: 0; }
+    .animate-fade-up-delay-2 { animation: fade-up 0.6s ease-out 0.2s forwards; opacity: 0; }
+    .animate-fade-up-delay-3 { animation: fade-up 0.6s ease-out 0.3s forwards; opacity: 0; }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+</head>
+<body class="min-h-screen bg-background">
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/50">
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <a href="index.html" class="font-serif text-xl lg:text-2xl font-medium tracking-wide text-foreground hover:text-primary transition-colors">
+        Marco I. de Santis
+      </a>
+      <ul class="hidden md:flex items-center gap-8">
+        <li><a href="index.html" class="elegant-underline font-body text-sm tracking-widest uppercase transition-colors text-primary">Home</a></li>
+        <li><a href="biografia.html" class="elegant-underline font-body text-sm tracking-widest uppercase transition-colors text-muted-foreground hover:text-foreground">Biografia</a></li>
+        <li><a href="opere.html" class="elegant-underline font-body text-sm tracking-widest uppercase transition-colors text-muted-foreground hover:text-foreground">Opere</a></li>
+        <li><a href="contatti.html" class="elegant-underline font-body text-sm tracking-widest uppercase transition-colors text-muted-foreground hover:text-foreground">Contatti</a></li>
+      </ul>
+      <button data-nav-toggle class="md:hidden p-2 text-foreground hover:text-primary transition-colors" aria-label="Toggle menu" aria-expanded="false">
+        <svg data-icon-menu width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg>
+        <svg data-icon-close class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div data-nav-mobile class="hidden md:hidden border-t border-border/50 py-4 animate-fade-in">
+      <ul class="flex flex-col gap-4">
+        <li><a href="index.html" class="block py-2 font-body text-sm tracking-widest uppercase transition-colors text-primary">Home</a></li>
+        <li><a href="biografia.html" class="block py-2 font-body text-sm tracking-widest uppercase transition-colors text-muted-foreground hover:text-foreground">Biografia</a></li>
+        <li><a href="opere.html" class="block py-2 font-body text-sm tracking-widest uppercase transition-colors text-muted-foreground hover:text-foreground">Opere</a></li>
+        <li><a href="contatti.html" class="block py-2 font-body text-sm tracking-widest uppercase transition-colors text-muted-foreground hover:text-foreground">Contatti</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<main>
+<section class="min-h-screen flex flex-col items-center justify-center relative px-6 pt-20">
+  <div class="absolute top-1/4 left-8 w-px h-32 bg-gradient-to-b from-transparent via-border to-transparent hidden lg:block"></div>
+  <div class="absolute top-1/4 right-8 w-px h-32 bg-gradient-to-b from-transparent via-border to-transparent hidden lg:block"></div>
 
-  <section class="hero">
-    <div class="hero__line hero__line--left" aria-hidden="true"></div>
-    <div class="hero__line hero__line--right" aria-hidden="true"></div>
-    <div class="hero__content">
-      <p class="eyebrow fade-up">Poeta · Scrittore · Giornalista</p>
-      <h1 class="hero__title fade-up fade-up--1">
-        Marco Ignazio
-        <span>de Santis</span>
-      </h1>
-      <div class="divider fade-up fade-up--2"></div>
-      <blockquote class="hero__quote fade-up fade-up--3">
-        "La parola &egrave; il ponte tra il silenzio e l'eternit&agrave;"
-      </blockquote>
+  <div class="text-center max-w-4xl mx-auto">
+    <p class="animate-fade-up font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6">
+      Poeta &middot; Scrittore &middot; Giornalista
+    </p>
+
+    <h1 class="animate-fade-up-delay-1 font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight text-foreground mb-8">
+      Marco Ignazio
+      <span class="block italic text-primary mt-2">de Santis</span>
+    </h1>
+
+    <div class="animate-fade-up-delay-2 literary-divider-wide my-10"></div>
+
+    <blockquote class="animate-fade-up-delay-3 font-serif text-xl sm:text-2xl md:text-3xl italic text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+      "La parola &egrave; il ponte tra il silenzio e l'eternit&agrave;"
+    </blockquote>
+  </div>
+
+  <button data-scroll-to="opere" class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group" aria-label="Scorri verso le opere">
+    <span class="font-body text-xs tracking-widest uppercase">Scopri</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-bounce group-hover:animate-none"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+  </button>
+</section>
+
+<section id="opere" class="py-24 lg:py-32 px-6 bg-paper-dark/50">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16 lg:mb-20">
+      <p class="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">Esplora</p>
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-foreground mb-6">Le Opere</h2>
+      <div class="literary-divider-wide"></div>
     </div>
-    <button class="hero__scroll" data-scroll-to="opere" aria-label="Scorri verso le opere">
-      <span>Scopri</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-    </button>
-  </section>
 
-  <section class="works" id="opere">
-    <div class="container container--xl">
-      <div class="section-header">
-        <p class="eyebrow">Esplora</p>
-        <h2>Le Opere</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="works__grid">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6">
 
-        <a class="work-card" href="opere.html#poesia">
-          <svg class="work-card__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
-          <h3 class="work-card__title">Poesia</h3>
-          <div class="work-card__underline"></div>
-        </a>
-
-        <a class="work-card" href="opere.html#narrativa">
-          <svg class="work-card__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          <h3 class="work-card__title">Narrativa</h3>
-          <div class="work-card__underline"></div>
-        </a>
-
-        <a class="work-card" href="opere.html#critica-letteraria">
-          <svg class="work-card__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
-          <h3 class="work-card__title">Critica Letteraria</h3>
-          <div class="work-card__underline"></div>
-        </a>
-
-        <a class="work-card" href="opere.html#storiografia">
-          <svg class="work-card__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
-          <h3 class="work-card__title">Storiografia</h3>
-          <div class="work-card__underline"></div>
-        </a>
-
-        <a class="work-card" href="opere.html#etnografia">
-          <svg class="work-card__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <h3 class="work-card__title">Etnografia</h3>
-          <div class="work-card__underline"></div>
-        </a>
-
-        <a class="work-card" href="opere.html#dialettologia">
-          <svg class="work-card__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <h3 class="work-card__title">Dialettologia</h3>
-          <div class="work-card__underline"></div>
-        </a>
-
-        <a class="work-card" href="opere.html#linguistica">
-          <svg class="work-card__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          <h3 class="work-card__title">Linguistica</h3>
-          <div class="work-card__underline"></div>
-        </a>
-
-        <a class="work-card" href="opere.html#giornalismo">
-          <svg class="work-card__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V6l-4-4H6a2 2 0 0 0-2 2v3"/><path d="M18 14H8"/><path d="M18 18H8"/><path d="M4 10h4v4H4z"/></svg>
-          <h3 class="work-card__title">Giornalismo</h3>
-          <div class="work-card__underline"></div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="about">
-    <div class="container container--wide">
-      <div class="about__grid">
-        <div class="about__image-wrap">
-          <div class="about__image">
-            <img src="assets/img/marco-ignazio-de-santis.jpg" alt="Marco Ignazio de Santis" />
-          </div>
+      <a href="opere.html#poesia" class="group flex flex-col items-center text-center py-10 px-6 transition-all duration-500 hover:bg-primary/5">
+        <div class="relative mb-5">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary/70 transition-all duration-500 group-hover:text-primary group-hover:scale-110"><path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V19a1 1 0 0 0 1 1h6.67Z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg>
+          <div class="absolute -inset-3 border border-primary/0 group-hover:border-primary/20 transition-all duration-500"></div>
         </div>
-        <div>
-          <p class="eyebrow">L&rsquo;Autore</p>
-          <h2>Una vita dedicata alla parola</h2>
-          <div class="divider divider--left"></div>
-          <p>Marco Ignazio de Santis, gi&agrave; docente di lettere, &egrave; nato a Molfetta nel 1951. Redattore del semestrale &laquo;La calce &amp; il dado&raquo;, ha collaborato con &laquo;Alfabeta&raquo;, &laquo;La Vallisa&raquo; e numerose altre riviste letterarie, dirigendo &laquo;Studi Molfettesi&raquo; e &laquo;Report&raquo;.</p>
-          <p>Giornalista pubblicista, poeta pi&ugrave; volte premiato e specialista di studi salveminiani, la sua opera spazia dalla poesia alla narrativa, dalla storiografia all&rsquo;etnografia e alla dialettologia.</p>
-          <a class="link-arrow" href="biografia.html">
-            <span>Leggi la biografia</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+        <h3 class="font-serif text-xl lg:text-2xl font-medium text-foreground/80 group-hover:text-foreground transition-colors duration-300 tracking-wide">Poesia</h3>
+        <div class="w-0 h-px bg-primary/60 mt-3 transition-all duration-500 group-hover:w-12"></div>
+      </a>
+
+      <a href="opere.html#narrativa" class="group flex flex-col items-center text-center py-10 px-6 transition-all duration-500 hover:bg-primary/5">
+        <div class="relative mb-5">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary/70 transition-all duration-500 group-hover:text-primary group-hover:scale-110"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+          <div class="absolute -inset-3 border border-primary/0 group-hover:border-primary/20 transition-all duration-500"></div>
+        </div>
+        <h3 class="font-serif text-xl lg:text-2xl font-medium text-foreground/80 group-hover:text-foreground transition-colors duration-300 tracking-wide">Narrativa</h3>
+        <div class="w-0 h-px bg-primary/60 mt-3 transition-all duration-500 group-hover:w-12"></div>
+      </a>
+
+      <a href="opere.html#critica-letteraria" class="group flex flex-col items-center text-center py-10 px-6 transition-all duration-500 hover:bg-primary/5">
+        <div class="relative mb-5">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary/70 transition-all duration-500 group-hover:text-primary group-hover:scale-110"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
+          <div class="absolute -inset-3 border border-primary/0 group-hover:border-primary/20 transition-all duration-500"></div>
+        </div>
+        <h3 class="font-serif text-xl lg:text-2xl font-medium text-foreground/80 group-hover:text-foreground transition-colors duration-300 tracking-wide">Critica Letteraria</h3>
+        <div class="w-0 h-px bg-primary/60 mt-3 transition-all duration-500 group-hover:w-12"></div>
+      </a>
+
+      <a href="opere.html#storiografia" class="group flex flex-col items-center text-center py-10 px-6 transition-all duration-500 hover:bg-primary/5">
+        <div class="relative mb-5">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary/70 transition-all duration-500 group-hover:text-primary group-hover:scale-110"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+          <div class="absolute -inset-3 border border-primary/0 group-hover:border-primary/20 transition-all duration-500"></div>
+        </div>
+        <h3 class="font-serif text-xl lg:text-2xl font-medium text-foreground/80 group-hover:text-foreground transition-colors duration-300 tracking-wide">Storiografia</h3>
+        <div class="w-0 h-px bg-primary/60 mt-3 transition-all duration-500 group-hover:w-12"></div>
+      </a>
+
+      <a href="opere.html#etnografia" class="group flex flex-col items-center text-center py-10 px-6 transition-all duration-500 hover:bg-primary/5">
+        <div class="relative mb-5">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary/70 transition-all duration-500 group-hover:text-primary group-hover:scale-110"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="absolute -inset-3 border border-primary/0 group-hover:border-primary/20 transition-all duration-500"></div>
+        </div>
+        <h3 class="font-serif text-xl lg:text-2xl font-medium text-foreground/80 group-hover:text-foreground transition-colors duration-300 tracking-wide">Etnografia</h3>
+        <div class="w-0 h-px bg-primary/60 mt-3 transition-all duration-500 group-hover:w-12"></div>
+      </a>
+
+      <a href="opere.html#dialettologia" class="group flex flex-col items-center text-center py-10 px-6 transition-all duration-500 hover:bg-primary/5">
+        <div class="relative mb-5">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary/70 transition-all duration-500 group-hover:text-primary group-hover:scale-110"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <div class="absolute -inset-3 border border-primary/0 group-hover:border-primary/20 transition-all duration-500"></div>
+        </div>
+        <h3 class="font-serif text-xl lg:text-2xl font-medium text-foreground/80 group-hover:text-foreground transition-colors duration-300 tracking-wide">Dialettologia</h3>
+        <div class="w-0 h-px bg-primary/60 mt-3 transition-all duration-500 group-hover:w-12"></div>
+      </a>
+
+      <a href="opere.html#linguistica" class="group flex flex-col items-center text-center py-10 px-6 transition-all duration-500 hover:bg-primary/5">
+        <div class="relative mb-5">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary/70 transition-all duration-500 group-hover:text-primary group-hover:scale-110"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+          <div class="absolute -inset-3 border border-primary/0 group-hover:border-primary/20 transition-all duration-500"></div>
+        </div>
+        <h3 class="font-serif text-xl lg:text-2xl font-medium text-foreground/80 group-hover:text-foreground transition-colors duration-300 tracking-wide">Linguistica</h3>
+        <div class="w-0 h-px bg-primary/60 mt-3 transition-all duration-500 group-hover:w-12"></div>
+      </a>
+
+      <a href="opere.html#giornalismo" class="group flex flex-col items-center text-center py-10 px-6 transition-all duration-500 hover:bg-primary/5">
+        <div class="relative mb-5">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary/70 transition-all duration-500 group-hover:text-primary group-hover:scale-110"><path d="M15 18h-5"/><path d="M18 14h-8"/><path d="M18 10h-8"/><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+          <div class="absolute -inset-3 border border-primary/0 group-hover:border-primary/20 transition-all duration-500"></div>
+        </div>
+        <h3 class="font-serif text-xl lg:text-2xl font-medium text-foreground/80 group-hover:text-foreground transition-colors duration-300 tracking-wide">Giornalismo</h3>
+        <div class="w-0 h-px bg-primary/60 mt-3 transition-all duration-500 group-hover:w-12"></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-24 lg:py-32 px-6">
+  <div class="container mx-auto max-w-5xl">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="relative">
+        <div class="aspect-[4/5] bg-card border border-border overflow-hidden">
+          <img src="assets/img/marco-ignazio-de-santis.jpg" alt="Marco Ignazio de Santis" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
         </div>
       </div>
-    </div>
-  </section>
 
-</main>
-
-<footer class="footer">
-  <div class="container container--wide">
-    <div class="footer__grid">
       <div>
-        <a href="index.html" class="footer__brand">Marco I. de Santis</a>
-        <p class="footer__tagline">Poeta, scrittore e giornalista</p>
+        <p class="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">L'Autore</p>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-6">Una vita dedicata alla parola</h2>
+        <div class="literary-divider-wide !mx-0 mb-8"></div>
+        <p class="font-body text-muted-foreground leading-relaxed mb-6">
+          Marco Ignazio de Santis &egrave; poeta, scrittore e giornalista.
+          La sua opera spazia dalla poesia alla narrativa, dalla critica letteraria
+          alla storiografia, dall'etnografia alla dialettologia e linguistica.
+        </p>
+        <p class="font-body text-muted-foreground leading-relaxed mb-8">
+          Un percorso intellettuale che intreccia la passione per la scrittura
+          con l'amore per le tradizioni e la cultura del territorio.
+        </p>
+        <a href="biografia.html" class="inline-flex items-center gap-3 font-body text-sm tracking-widest uppercase text-primary hover:text-terracotta-light transition-colors group">
+          <span>Leggi la biografia</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-16 px-6 border-t border-border/50 bg-paper-dark/30">
+  <div class="container mx-auto max-w-5xl">
+    <div class="grid md:grid-cols-3 gap-12 mb-12">
+      <div>
+        <a href="index.html" class="font-serif text-2xl font-medium text-foreground">Marco I. de Santis</a>
+        <p class="font-body text-sm text-muted-foreground mt-3">Poeta, scrittore e giornalista</p>
       </div>
       <div>
-        <h4>Navigazione</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="biografia.html">Biografia</a></li>
-          <li><a href="opere.html">Opere</a></li>
-          <li><a href="contatti.html">Contatti</a></li>
+        <h4 class="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">Navigazione</h4>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="font-body text-sm text-foreground hover:text-primary transition-colors">Home</a></li>
+          <li><a href="biografia.html" class="font-body text-sm text-foreground hover:text-primary transition-colors">Biografia</a></li>
+          <li><a href="opere.html" class="font-body text-sm text-foreground hover:text-primary transition-colors">Opere</a></li>
+          <li><a href="contatti.html" class="font-body text-sm text-foreground hover:text-primary transition-colors">Contatti</a></li>
         </ul>
       </div>
       <div>
-        <h4>Contatti</h4>
-        <a class="footer__email" href="mailto:marcoignazio.desantis@gmail.com">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+        <h4 class="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">Contatti</h4>
+        <a href="mailto:marcoignazio.desantis@gmail.com" class="inline-flex items-center gap-2 font-body text-sm text-foreground hover:text-primary transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           <span>marcoignazio.desantis@gmail.com</span>
         </a>
       </div>
     </div>
-    <div class="divider" style="margin-bottom:2rem"></div>
-    <p class="footer__bottom">&copy; <span data-year></span> Marco Ignazio de Santis. Tutti i diritti riservati.</p>
+    <div class="literary-divider-wide mb-8"></div>
+    <p class="font-body text-xs text-center text-muted-foreground">&copy; <span data-year></span> Marco Ignazio de Santis. Tutti i diritti riservati.</p>
   </div>
 </footer>
 
