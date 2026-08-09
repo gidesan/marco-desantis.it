@@ -53,8 +53,8 @@ const title = `${category.data.title} — ${SITE.title}`;
     { label: category.data.title },
   ]}
 >
-  <section class="px-6 pt-10 pb-24">
-    <div class="mx-auto max-w-4xl">
+  <section class="px-6 pt-10 pb-24 lg:px-4">
+    <div class="mx-auto max-w-5xl">
       <div class="mb-12">
         <h1
           class="mb-6 font-serif text-4xl font-medium text-foreground md:text-5xl lg:text-6xl"
@@ -64,7 +64,7 @@ const title = `${category.data.title} — ${SITE.title}`;
         <Divider class="mb-8 mx-0!" />
         {
           category.data.description && (
-            <p class="max-w-2xl font-body text-lg leading-relaxed text-muted-foreground">
+            <p class="font-body text-lg leading-relaxed text-muted-foreground">
               {category.data.description}
             </p>
           )
