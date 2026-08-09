@@ -1,0 +1,24 @@
+---
+// Google Analytics (gtag). Renders nothing unless GTAG_ID is set, so dev/preview
+// stay clean and enabling analytics is a single env-var flip.
+const gtagId = import.meta.env.GTAG_ID;
+---
+
+{
+  gtagId && (
+    <>
+      <script
+        is:inline
+        src={"https://www.googletagmanager.com/gtag/js?id=" + gtagId}
+      />
+      <script
+        set:html={`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtagId}');
+        `}
+      />
+    </>
+  )
+}

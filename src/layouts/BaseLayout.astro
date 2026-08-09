@@ -1,0 +1,86 @@
+---
+import Meta from "@components/shell/Meta.astro";
+import Nav from "@components/shell/Nav.astro";
+import Footer from "@components/shell/Footer.astro";
+import GoogleTag from "@components/shell/GoogleTag.astro";
+import Breadcrumbs from "@components/shell/Breadcrumbs.astro";
+import type { Crumb } from "@components/shell/Breadcrumbs.astro";
+import { SITE } from "@/site";
+import {
+  createTranslator,
+  createUrlTranslator,
+  getTextDirection,
+} from "@/i18n/utils";
+import "@styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  structuredData?: object;
+  lang?: string;
+  // Trail *excluding* Home; Home is prepended by the Breadcrumbs component.
+  breadcrumbs?: Crumb[];
+}
+
+const { title, description, structuredData, lang, breadcrumbs } = Astro.props;
+
+const currentLang = lang || Astro.currentLocale || "it";
+const textDirection = getTextDirection(currentLang);
+
+const tl = createTranslator(Astro.currentLocale);
+const url = createUrlTranslator(Astro.currentLocale);
+
+const pageTitle = title ?? `${SITE.title} — ${tl("seo.shortDescription")}`;
+
+// BreadcrumbList JSON-LD from the full trail (Home + passed crumbs).
+const breadcrumbList = breadcrumbs?.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { label: tl("nav.home"), href: url("") },
+        ...breadcrumbs,
+      ].map((crumb, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: crumb.label,
+        item: new URL(crumb.href ?? Astro.url.pathname, Astro.site ?? Astro.url)
+          .href,
+      })),
+    }
+  : null;
+---
+
+<html lang={currentLang} dir={textDirection} class="scroll-smooth scroll-pt-24">
+  <head>
+    <Meta
+      title={pageTitle}
+      meta={description}
+      structuredData={structuredData}
+    />
+    {
+      breadcrumbList && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(breadcrumbList)}
+        />
+      )
+    }
+    <title>{pageTitle}</title>
+    <GoogleTag />
+  </head>
+  <body class="flex min-h-screen flex-col bg-background font-body text-foreground">
+    <Nav />
+    <main data-pagefind-body class="grow">
+      {
+        breadcrumbs?.length ? (
+          <div class="mx-auto w-full max-w-5xl px-6 pt-24 lg:px-8 lg:pt-28">
+            <Breadcrumbs items={breadcrumbs} />
+          </div>
+        ) : null
+      }
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

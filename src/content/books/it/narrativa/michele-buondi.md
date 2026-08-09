@@ -1,0 +1,9 @@
+---
+title: "Michele Buondì, Sabina e la buona società"
+date: "1985-08-01"
+category: "narrativa"
+slug: "michele-buondi"
+image: "./covers/michele-buondi.jpg"
+imageAlt: "Michele Buondì, Sabina e la buona società"
+---
+_Michele Buondì, Sabina e la buona società. Fiaba trislacca_ ab ovo _per bambini cattivi_, in «La Vallisa», a. IV, n. 11, Bari, agosto 1985, pp. 15-20.

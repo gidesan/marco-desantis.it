@@ -1,0 +1,153 @@
+/* Self-hosted Cormorant Garamond (serif). Body copy uses the system sans stack,
+   matching the redesign — no web font loaded for it. */
+@import "@fontsource/cormorant-garamond/400.css";
+@import "@fontsource/cormorant-garamond/500.css";
+@import "@fontsource/cormorant-garamond/600.css";
+@import "@fontsource/cormorant-garamond/700.css";
+@import "@fontsource/cormorant-garamond/400-italic.css";
+@import "@fontsource/cormorant-garamond/500-italic.css";
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Design tokens ported from the redesign mockup (warm cream + terracotta,
+   literary look). HSL values are the mockup's :root variables. */
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-body: ui-sans-serif, system-ui, sans-serif;
+
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-background: hsl(40 33% 96%);
+  --color-foreground: hsl(20 10% 15%);
+  --color-card: hsl(40 30% 94%);
+  --color-card-foreground: hsl(20 10% 15%);
+  --color-primary: hsl(15 55% 45%);
+  --color-primary-foreground: hsl(40 33% 96%);
+  --color-secondary: hsl(35 25% 88%);
+  --color-secondary-foreground: hsl(20 10% 25%);
+  --color-muted: hsl(35 20% 90%);
+  --color-muted-foreground: hsl(20 8% 45%);
+  --color-accent: hsl(25 40% 50%);
+  --color-accent-foreground: hsl(40 33% 96%);
+  --color-border: hsl(30 20% 85%);
+  --color-input: hsl(30 20% 85%);
+  --color-ring: hsl(15 55% 45%);
+  --color-paper: hsl(42 35% 95%);
+  --color-paper-dark: hsl(38 28% 90%);
+  --color-terracotta: hsl(15 55% 45%);
+  --color-terracotta-light: hsl(15 50% 55%);
+
+  --animate-fade-up: fade-up 0.6s ease-out forwards;
+}
+
+@layer base {
+  /* Tailwind v4 defaults the border color to currentColor; pin it to our token
+     so a bare `border` utility uses the design-system border color. */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentColor);
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Decorative centered hairline divider (from the mockup). */
+@utility literary-divider-wide {
+  width: 8rem;
+  height: 1px;
+  margin-inline: auto;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, var(--color-primary) 40%, transparent),
+    transparent
+  );
+}
+
+/* Nav-link underline that wipes in from the left on hover. */
+.elegant-underline {
+  position: relative;
+  display: inline-block;
+}
+.elegant-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.elegant-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Staggered fade-up entrance animations (fire once on load). */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+.animate-fade-up-delay-1 {
+  animation: fade-up 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+.animate-fade-up-delay-3 {
+  animation: fade-up 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-up-delay-1,
+  .animate-fade-up-delay-2,
+  .animate-fade-up-delay-3 {
+    animation: none;
+    opacity: 1;
+  }
+}

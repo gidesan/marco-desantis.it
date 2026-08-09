@@ -1,0 +1,9 @@
+---
+// Bordered card frame around an image. Pass an aspect ratio via `class`
+// (e.g. "aspect-[4/5]"); children fill it with object-cover.
+const { class: extra = "" } = Astro.props;
+---
+
+<div class:list={["overflow-hidden border border-border bg-card", extra]}>
+  <slot />
+</div>

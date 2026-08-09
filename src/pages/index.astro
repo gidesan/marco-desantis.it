@@ -1,0 +1,148 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Eyebrow from "@components/ui/Eyebrow.astro";
+import Divider from "@components/ui/Divider.astro";
+import Button from "@components/ui/Button.astro";
+import CategoryIcon from "@components/icons/CategoryIcon.astro";
+import IconArrowDown from "@components/icons/IconArrowDown.astro";
+import portrait from "@images/marco-ignazio-de-santis.jpg";
+import {
+  createTranslator,
+  createUrlTranslator,
+  collectionFilterByLocale,
+} from "@/i18n/utils";
+
+const tl = createTranslator(Astro.currentLocale);
+const url = createUrlTranslator(Astro.currentLocale);
+
+const categories = (
+  await getCollection(
+    "categories",
+    collectionFilterByLocale<"categories">(Astro.currentLocale),
+  )
+).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section
+    class="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20"
+  >
+    <div
+      class="absolute top-1/4 left-8 hidden h-32 w-px bg-gradient-to-b from-transparent via-border to-transparent lg:block"
+    >
+    </div>
+    <div
+      class="absolute top-1/4 right-8 hidden h-32 w-px bg-gradient-to-b from-transparent via-border to-transparent lg:block"
+    >
+    </div>
+
+    <div class="mx-auto max-w-4xl text-center">
+      <Eyebrow class="animate-fade-up mb-6">
+        Poeta · Scrittore · Giornalista
+      </Eyebrow>
+      <h1
+        class="animate-fade-up-delay-1 mb-8 font-serif text-5xl font-medium tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl"
+      >
+        Marco Ignazio
+        <span class="mt-2 block italic text-primary">de Santis</span>
+      </h1>
+      <div class="animate-fade-up-delay-2 my-10">
+        <Divider />
+      </div>
+      <blockquote
+        class="animate-fade-up-delay-3 mx-auto max-w-2xl font-serif text-xl italic leading-relaxed text-muted-foreground sm:text-2xl md:text-3xl"
+      >
+        &ldquo;La parola è il ponte tra il silenzio e l'eternità&rdquo;
+      </blockquote>
+    </div>
+
+    <a
+      href="#opere"
+      class="group absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
+      aria-label="Scorri verso le opere"
+    >
+      <span class="font-body text-xs uppercase tracking-widest">Scopri</span>
+      <IconArrowDown class="h-5 w-5 animate-bounce group-hover:[animation:none]" />
+    </a>
+  </section>
+
+  <!-- Le Opere -->
+  <section id="opere" class="bg-paper-dark/50 px-6 py-24 lg:py-32">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16 text-center lg:mb-20">
+        <Eyebrow class="mb-4">{tl("opere.eyebrow")}</Eyebrow>
+        <h2
+          class="mb-6 font-serif text-4xl font-medium text-foreground md:text-5xl lg:text-6xl"
+        >
+          {tl("opere.title")}
+        </h2>
+        <Divider />
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-6">
+        {
+          categories.map((cat) => (
+            <a
+              href={url(`opere/${cat.data.code}`)}
+              class="group flex flex-col items-center px-6 py-10 text-center transition-all duration-500 hover:bg-primary/5"
+            >
+              <div class="relative mb-5">
+                <CategoryIcon
+                  name={cat.data.icon}
+                  strokeWidth={1.5}
+                  class="h-8 w-8 text-primary/70 transition-all duration-500 group-hover:scale-110 group-hover:text-primary"
+                />
+                <div class="absolute -inset-3 border border-primary/0 transition-all duration-500 group-hover:border-primary/20" />
+              </div>
+              <h3 class="font-serif text-xl font-medium tracking-wide text-foreground/80 transition-colors duration-300 group-hover:text-foreground lg:text-2xl">
+                {cat.data.title}
+              </h3>
+              <div class="mt-3 h-px w-0 bg-primary/60 transition-all duration-500 group-hover:w-12" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- L'Autore -->
+  <section class="px-6 py-24 lg:py-32">
+    <div class="mx-auto max-w-5xl">
+      <div class="grid items-center gap-12 md:grid-cols-2 lg:gap-20">
+        <div class="overflow-hidden border border-border bg-card">
+          <Image
+            src={portrait}
+            alt="Marco Ignazio de Santis"
+            widths={[400, 800]}
+            sizes="(min-width: 768px) 40vw, 90vw"
+            class="aspect-[4/5] w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+          />
+        </div>
+        <div>
+          <Eyebrow class="mb-4">L'Autore</Eyebrow>
+          <h2
+            class="mb-6 font-serif text-3xl font-medium text-foreground md:text-4xl lg:text-5xl"
+          >
+            Una vita dedicata alla parola
+          </h2>
+          <Divider class="mb-8 !mx-0" />
+          <p class="mb-6 font-body leading-relaxed text-muted-foreground">
+            Marco Ignazio de Santis è poeta, scrittore e giornalista. La sua
+            opera spazia dalla poesia alla narrativa, dalla critica letteraria
+            alla storiografia, dall'etnografia alla dialettologia e linguistica.
+          </p>
+          <p class="mb-8 font-body leading-relaxed text-muted-foreground">
+            Un percorso intellettuale che intreccia la passione per la scrittura
+            con l'amore per le tradizioni e la cultura del territorio.
+          </p>
+          <Button variant="cta" href={url("biografia")}>
+            Leggi la biografia
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

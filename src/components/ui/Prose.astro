@@ -1,0 +1,21 @@
+---
+// Rendered-markdown wrapper: styles book citations, category bodies and bio
+// prose with the site's tokens (muted body, serif headings, terracotta links,
+// primary blockquote rule).
+const { class: extra = "" } = Astro.props;
+---
+
+<div
+  class:list={[
+    "prose max-w-none font-body",
+    "prose-p:text-muted-foreground prose-p:leading-relaxed",
+    "prose-headings:font-serif prose-headings:font-medium prose-headings:text-foreground",
+    "prose-strong:text-foreground prose-em:text-foreground",
+    "prose-a:text-primary prose-a:no-underline hover:prose-a:text-terracotta-light",
+    "prose-blockquote:border-l-2 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:font-serif prose-blockquote:not-italic prose-blockquote:text-foreground",
+    "prose-li:text-muted-foreground",
+    extra,
+  ]}
+>
+  <slot />
+</div>

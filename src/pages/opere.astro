@@ -1,0 +1,75 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Eyebrow from "@components/ui/Eyebrow.astro";
+import Divider from "@components/ui/Divider.astro";
+import CategoryIcon from "@components/icons/CategoryIcon.astro";
+import IconArrowForward from "@components/icons/IconArrowForward.astro";
+import { SITE } from "@/site";
+import {
+  createTranslator,
+  createUrlTranslator,
+  collectionFilterByLocale,
+} from "@/i18n/utils";
+
+const tl = createTranslator(Astro.currentLocale);
+const url = createUrlTranslator(Astro.currentLocale);
+
+const categories = (
+  await getCollection(
+    "categories",
+    collectionFilterByLocale<"categories">(Astro.currentLocale),
+  )
+).sort((a, b) => a.data.order - b.data.order);
+
+const title = `${tl("opere.title")} — ${SITE.title}`;
+const description =
+  "Le opere di Marco Ignazio de Santis: poesia, narrativa, critica letteraria, storiografia, etnografia, dialettologia, linguistica e giornalismo.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="px-6 pt-32 pb-16">
+    <div class="mx-auto max-w-3xl text-center">
+      <Eyebrow class="animate-fade-up mb-4">{tl("opere.eyebrow")}</Eyebrow>
+      <h1
+        class="animate-fade-up-delay-1 mb-6 font-serif text-4xl font-medium text-foreground md:text-5xl lg:text-6xl"
+      >
+        {tl("opere.title")}
+      </h1>
+      <div class="animate-fade-up-delay-2"><Divider /></div>
+    </div>
+  </section>
+
+  <section class="px-6 pb-24">
+    <div class="mx-auto max-w-4xl">
+      <div class="space-y-8">
+        {
+          categories.map((cat) => (
+            <a
+              href={url(`opere/${cat.data.code}`)}
+              class="group block border border-border bg-card p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-lg md:p-10"
+            >
+              <div class="flex items-start gap-6">
+                <CategoryIcon
+                  name={cat.data.icon}
+                  class="mt-1 h-8 w-8 shrink-0 text-primary transition-transform duration-300 group-hover:scale-110"
+                />
+                <div class="flex-1">
+                  <div class="mb-3 flex items-center justify-between">
+                    <h2 class="font-serif text-2xl font-medium text-foreground transition-colors group-hover:text-primary md:text-3xl">
+                      {cat.data.title}
+                    </h2>
+                    <IconArrowForward class="h-5 w-5 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary" />
+                  </div>
+                  <p class="font-body leading-relaxed text-muted-foreground">
+                    {cat.data.description}
+                  </p>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

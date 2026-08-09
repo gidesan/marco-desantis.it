@@ -1,0 +1,15 @@
+---
+import type { HTMLAttributes } from "astro/types";
+interface Props extends Omit<HTMLAttributes<"input">, "class"> {
+  class?: string;
+}
+const { class: extra = "", ...rest } = Astro.props;
+---
+
+<input
+  class:list={[
+    "w-full border border-border bg-card px-4 py-3 font-body text-foreground placeholder:text-muted-foreground transition-colors focus:border-primary focus:outline-none",
+    extra,
+  ]}
+  {...rest}
+/>

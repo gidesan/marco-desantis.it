@@ -1,0 +1,20 @@
+---
+// Shared wrapper for the line-icon set: common SVG attributes live here so each
+// icon file only declares its own shapes. `class` is forwarded to the <svg>;
+// `strokeWidth` defaults to 2 and can be overridden per icon.
+const { class: className, strokeWidth = 2, ...rest } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width={strokeWidth}
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  class={className}
+  {...rest}
+>
+  <slot />
+</svg>

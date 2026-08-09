@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Eyebrow from "@components/ui/Eyebrow.astro";
+import Divider from "@components/ui/Divider.astro";
+import Button from "@components/ui/Button.astro";
+import { SITE } from "@/site";
+import { createTranslator, createUrlTranslator } from "@/i18n/utils";
+
+const tl = createTranslator(Astro.currentLocale);
+const url = createUrlTranslator(Astro.currentLocale);
+---
+
+<BaseLayout title={`${tl("404.pageTitle")} — ${SITE.title}`}>
+  <section
+    class="flex min-h-[70vh] flex-col items-center justify-center px-6 pt-32 pb-24 text-center"
+  >
+    <Eyebrow class="mb-4">404</Eyebrow>
+    <h1
+      class="mb-6 font-serif text-4xl font-medium text-foreground md:text-5xl lg:text-6xl"
+    >
+      {tl("404.subTitle")}
+    </h1>
+    <Divider class="mb-8" />
+    <p class="mb-10 max-w-xl font-body leading-relaxed text-muted-foreground">
+      {tl("404.content")}
+    </p>
+    <Button variant="cta" href={url("")}>{tl("404.btnTitle")}</Button>
+  </section>
+</BaseLayout>

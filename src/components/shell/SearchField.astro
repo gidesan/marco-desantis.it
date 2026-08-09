@@ -1,0 +1,19 @@
+---
+import IconSearch from "@components/icons/IconSearch.astro";
+import { createTranslator } from "@/i18n/utils";
+
+// Toggle button that opens the full-width SearchOverlay in the nav.
+const tl = createTranslator(Astro.currentLocale);
+const placeholder = tl("nav.searchPlaceholder");
+---
+
+<button
+  type="button"
+  data-search-toggle
+  aria-label={placeholder}
+  aria-expanded="false"
+  aria-controls="header-search-overlay"
+  class="search-toggle text-muted-foreground transition-colors hover:text-primary"
+>
+  <IconSearch class="h-5 w-5" />
+</button>

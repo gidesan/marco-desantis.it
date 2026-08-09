@@ -1,0 +1,32 @@
+---
+import IconBase from "./IconBase.astro";
+
+// One glyph per literary category, keyed by the category `code`. Falls back to a
+// generic book icon for unknown codes. Lucide-style line icons, matching the
+// redesign mockup.
+interface Props {
+  name: string;
+  class?: string;
+  strokeWidth?: number;
+}
+const { name, class: className, strokeWidth = 2 } = Astro.props;
+
+const glyphs: Record<string, string> = {
+  poesia: `<path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V19a1 1 0 0 0 1 1h6.67Z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/>`,
+  narrativa: `<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>`,
+  "critica-letteraria": `<path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/>`,
+  storiografia: `<path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/>`,
+  etnografia: `<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>`,
+  dialettologia: `<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>`,
+  linguistica: `<path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>`,
+  giornalismo: `<path d="M15 18h-5"/><path d="M18 14h-8"/><path d="M18 10h-8"/><rect width="18" height="18" x="3" y="3" rx="2"/>`,
+};
+
+const shapes =
+  glyphs[name] ??
+  `<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>`;
+---
+
+<IconBase class={className} strokeWidth={strokeWidth}>
+  <Fragment set:html={shapes} />
+</IconBase>

@@ -1,0 +1,16 @@
+---
+title: "Lettere dagli argonauti"
+date: "2007-01-01"
+category: "poesia"
+slug: "lettere-dagli-argonauti"
+image: "./covers/lettere-dagli-argonauti.jpg"
+imageAlt: "Lettere dagli argonauti"
+---
+_Lettere dagli argonauti_ \
+Edizioni La Vallisa, Bari \
+2007
+
+> «Questo autore pone la poesia a guardia e a difesa delle verità
+> profonde dell'uomo contro l'insensatezza del mondo»
+>
+> <cite>Renzo Ricchi</cite>

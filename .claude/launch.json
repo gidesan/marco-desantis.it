@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "remix-dev",
-      "runtimeExecutable": "fnm",
-      "runtimeArgs": ["exec", "--using=18", "--", "npx", "remix", "dev"],
-      "port": 3000
+      "name": "astro",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "4329"],
+      "port": 4329
     }
   ]
 }

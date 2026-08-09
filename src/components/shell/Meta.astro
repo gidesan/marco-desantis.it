@@ -1,0 +1,150 @@
+---
+import { getImage } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { SITE } from "@/site";
+import faviconSvgSrc from "@images/logo.svg";
+import faviconSrc from "@images/icon.png";
+import ogImageSrc from "@images/social.png";
+import {
+  createTranslator,
+  getPathWithoutLocale,
+  localeMetadata,
+  localeNames,
+} from "@/i18n/utils";
+import { defaultLocale, isLocale } from "@/i18n/locales";
+
+// Resolve the active locale from Astro's routing context, not the URL path (on
+// i18n-rewritten pages the prefix is already stripped from Astro.url.pathname).
+const currentLocale =
+  Astro.currentLocale && isLocale(Astro.currentLocale)
+    ? Astro.currentLocale
+    : defaultLocale;
+const tl = createTranslator(currentLocale);
+
+const {
+  title,
+  meta = tl("seo.homeDescription"),
+  structuredData,
+} = Astro.props;
+
+const url = Astro.site;
+const description = meta;
+const pageTitle = title ?? `${SITE.title} — ${tl("seo.shortDescription")}`;
+
+const pathWithoutLocale = getPathWithoutLocale(
+  Astro.url.pathname,
+  currentLocale,
+);
+const canonical = new URL(
+  getRelativeLocaleUrl(currentLocale, pathWithoutLocale),
+  url,
+).href;
+const domain = Astro.url.hostname;
+
+const socialImageRes = await getImage({
+  src: ogImageSrc,
+  width: 1200,
+  height: 600,
+  format: "png",
+});
+const socialImage = Astro.url.origin + socialImageRes.src;
+
+// Default per-page structured data: a WebPage reflecting THIS page.
+const webPage = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  inLanguage: localeMetadata[currentLocale].bcp47,
+  "@id": canonical,
+  url: canonical,
+  name: pageTitle,
+  description,
+  isPartOf: { "@type": "WebSite", url: SITE.url, name: SITE.title },
+};
+const pageStructuredData = structuredData ?? webPage;
+
+// Site-wide identity: a WebSite about a Person (Marco), exposed on every page.
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE.author,
+  jobTitle: SITE.jobTitle,
+  url: SITE.url,
+  image: socialImage,
+  email: `mailto:${SITE.email}`,
+  birthPlace: { "@type": "Place", name: SITE.birthPlace },
+  sameAs: SITE.sameAs,
+};
+const website = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE.title,
+  url: SITE.url,
+  inLanguage: localeMetadata[currentLocale].bcp47,
+  author: { "@type": "Person", name: SITE.author },
+};
+
+// hreflang cluster + x-default (single locale today; ready for more).
+const alternateLanguageLinks: string = [
+  ...Object.keys(localeNames).map((lang) => {
+    const href = new URL(getRelativeLocaleUrl(lang, pathWithoutLocale), url)
+      .href;
+    return `<link rel="alternate" hreflang="${lang}" href="${href}" />`;
+  }),
+  `<link rel="alternate" hreflang="x-default" href="${
+    new URL(getRelativeLocaleUrl(defaultLocale, pathWithoutLocale), url).href
+  }" />`,
+].join("\n");
+
+const faviconSvg = await getImage({ src: faviconSvgSrc, format: "svg" });
+const appleTouchIcon = await getImage({
+  src: faviconSrc,
+  width: 180,
+  height: 180,
+  format: "png",
+});
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(pageStructuredData)}
+/>
+<script type="application/ld+json" set:html={JSON.stringify(website)} />
+<script type="application/ld+json" set:html={JSON.stringify(person)} />
+
+<meta charset="utf-8" />
+<meta content={description} name="description" />
+<meta name="author" content={SITE.author} />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"
+/>
+<link rel="canonical" href={canonical} />
+<Fragment set:html={alternateLanguageLinks} />
+
+<!-- Open Graph -->
+<meta property="og:locale" content={localeMetadata[currentLocale].og} />
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:site_name" content={SITE.title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImage} />
+<meta content="1200" property="og:image:width" />
+<meta content="600" property="og:image:height" />
+<meta content="image/png" property="og:image:type" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content={domain} />
+<meta property="twitter:url" content={canonical} />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImage} />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any" />
+<meta name="mobile-web-app-capable" content="yes" />
+<link href={appleTouchIcon.src} rel="apple-touch-icon" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta name="theme-color" content="#b25334" />
