@@ -30,6 +30,10 @@ export const it = {
       "Le opere di questa sezione saranno presto disponibili.",
     "category.backTo": "Torna a {category}",
     "category.viewFullList": "Vedi l'elenco generale completo",
+    // Distinct from "category.backTo": the destination page shares the
+    // category's own name ("Critica Letteraria"), so "Torna a Critica
+    // Letteraria" doesn't distinguish it from the page you're already on.
+    "category.backToWorks": "Torna alle opere in evidenza",
     "book.eyebrow": "Opera",
     "book.coverAlt": 'Copertina di "{title}"',
 
