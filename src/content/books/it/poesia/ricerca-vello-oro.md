@@ -5,7 +5,6 @@ date: "2017-01-01"
 category: "poesia"
 slug: "ricerca-vello-oro"
 image: "./covers/ricerca-vello-oro.jpg"
-imageAlt: "Alla ricerca del vello d'oro"
 ---
 
 _Në kërkim të bashkës së artë_ (_Alla ricerca del vello d'oro_),\

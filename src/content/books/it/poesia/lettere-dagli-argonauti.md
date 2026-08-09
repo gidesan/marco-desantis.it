@@ -4,7 +4,6 @@ date: "2007-01-01"
 category: "poesia"
 slug: "lettere-dagli-argonauti"
 image: "./covers/lettere-dagli-argonauti.jpg"
-imageAlt: "Lettere dagli argonauti"
 ---
 _Lettere dagli argonauti_ \
 Edizioni La Vallisa, Bari \

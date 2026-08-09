@@ -14,7 +14,7 @@ import {
   localeMetadata,
 } from "@/i18n/utils";
 import { defaultLocale, isLocale } from "@/i18n/locales";
-import { bookDisplayTitle } from "@utils/books";
+import { bookDisplayTitle, bookImageAlt } from "@utils/books";
 
 export async function getStaticPaths() {
   const books = await getCollection(
@@ -93,7 +93,7 @@ const lightboxId = `book-cover-${book.data.slug}`;
               >
                 <Image
                   src={book.data.image}
-                  alt={book.data.imageAlt ?? bookDisplayTitle(book.data)}
+                  alt={bookImageAlt(book.data, tl)}
                   widths={[288, 576]}
                   sizes="(min-width: 768px) 18rem, 90vw"
                   class="w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -139,7 +139,7 @@ const lightboxId = `book-cover-${book.data.slug}`;
         prevId={lightboxId}
         nextId={lightboxId}
         image={book.data.image}
-        alt={book.data.imageAlt ?? bookDisplayTitle(book.data)}
+        alt={bookImageAlt(book.data, tl)}
         caption={bookDisplayTitle(book.data)}
         showNav={false}
       />

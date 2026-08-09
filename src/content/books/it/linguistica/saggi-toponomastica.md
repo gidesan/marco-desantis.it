@@ -4,6 +4,5 @@ date: "1980"
 category: "linguistica"
 slug: "saggi-toponomastica"
 image: "./covers/saggi-toponomastica.jpg"
-imageAlt: "Saggi di toponomastica molfettese"
 ---
 _Saggi di toponomastica molfettese_, Mezzina, Molfetta, 1980 (“Quaderni del Centro Studi Molfettesi“, n. 1).

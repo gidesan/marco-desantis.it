@@ -4,7 +4,6 @@ date: "2019-01-01"
 category: "critica-letteraria"
 slug: "scimmia-pazza-mente"
 image: "./covers/scimmia-pazza-mente.jpg"
-imageAlt: "\"«È una scimmia pazza la mente». L'universo poetico di Daniele"
 ---
 _«È una scimmia pazza la mente». L’universo poetico di Daniele
 Giancane_, Solfanelli, Chieti, 2019. \

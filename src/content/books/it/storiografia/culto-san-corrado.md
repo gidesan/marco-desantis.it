@@ -4,6 +4,5 @@ date: "1985-07"
 category: "storiografia"
 slug: "culto-san-corrado"
 image: "./covers/culto-san-corrado.jpg"
-imageAlt: "Il culto di S. Corrado eremita nel Cinquecento"
 ---
 _Il culto di S. Corrado eremita nel Cinquecento_, in AA. VV., “Uomini e vicende della Chiesa di Molfetta“, a cura di Luigi Michele de Palma, Mezzina, Molfetta, 1985, pp. 27-53 (Quaderni dell'Archivio Diocesano di Molfetta, n. 8).

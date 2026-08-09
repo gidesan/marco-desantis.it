@@ -4,7 +4,6 @@ date: "2019-02-01"
 category: "critica-letteraria"
 slug: "poesia-istanti-puri"
 image: "./covers/poesia-istanti-puri.jpg"
-imageAlt: "La poesia degli «istanti puri» di Ada de Judicibus Lisena"
 ---
 _La poesia degli «istanti puri» di Ada de Judicibus Lisena_, Solfanelli,
 Chieti, 2019. \

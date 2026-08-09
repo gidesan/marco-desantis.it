@@ -4,7 +4,6 @@ date: "2023-01"
 category: "critica-letteraria"
 slug: "autori-900"
 image: "./covers/autori-900.jpg"
-imageAlt: "Pirandello, Chiarelli, Montale, Comi, Bodini e altri autori del '900"
 ---
 _Pirandello, Chiarelli, Montale, Comi, Bodini e altri autori del '900_, Genesi Editrice, Torino, 2023.\
 Interventi critici su Anna _Banti_ • Vittorio _Bodini_ • Dino _Buzzati_ • Italo _Calvino_ • Giòsue _Carducci_ • Luigi _Chiarelli_ • Girolamo _Comi_ • Beppe _Fenoglio_ • Carlo Emilio _Gadda_ • Amalia _Guglielminetti_ • Carlo _Levi_ • Curzio _Malaparte_ • Maria _Marcone_ • Giuseppe _Marotta_ • Eugenio _Montale_ • Aldo _Palazzeschi_ • Enrico _Panunzio_ • Luigi _Pirandello_ • Vasco _Pratolini_ • Giuseppe _Prezzolini_ • Leonida _Rèpaci_ • Rosaria _Scardigno_.

@@ -4,7 +4,6 @@ date: "2001-01-01"
 category: "critica-letteraria"
 slug: "vertenza-sud"
 image: "./covers/vertenza-sud.jpg"
-imageAlt: "Vertenza sud"
 ---
 _Puglia: una poesia di frontiera_, in Daniele Giancane (a cura di),
 _Vertenza Sud. La poesia nelle regioni dell’Italia meridionale_, Besa,

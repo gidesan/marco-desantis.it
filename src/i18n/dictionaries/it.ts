@@ -30,6 +30,7 @@ export const it = {
       "Le opere di questa sezione saranno presto disponibili.",
     "category.backTo": "Torna a {category}",
     "book.eyebrow": "Opera",
+    "book.coverAlt": 'Copertina di "{title}"',
 
     // SEO
     "seo.shortDescription": "Poeta, scrittore e giornalista",

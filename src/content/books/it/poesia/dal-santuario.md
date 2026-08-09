@@ -4,7 +4,6 @@ date: "2014-01-01"
 category: "poesia"
 slug: "dal-santuario"
 image: "./covers/dal-santuario.jpg"
-imageAlt: "Dal santuario"
 ---
 _Dal santuario_ \
 Edizioni Helicon, Arezzo \

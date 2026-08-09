@@ -10,7 +10,7 @@ import {
   createUrlTranslator,
   collectionFilterByLocale,
 } from "@/i18n/utils";
-import { bookDisplayTitle } from "@utils/books";
+import { bookDisplayTitle, bookImageAlt } from "@utils/books";
 
 export async function getStaticPaths() {
   // Enumerate the category routes once from the (locale-filtered) collection.
@@ -89,7 +89,7 @@ const title = `${category.data.title} — ${SITE.title}`;
                     {book.data.image ? (
                       <Image
                         src={book.data.image}
-                        alt={book.data.imageAlt ?? bookDisplayTitle(book.data)}
+                        alt={bookImageAlt(book.data, tl)}
                         widths={[200, 400]}
                         sizes="(min-width: 1024px) 20vw, 45vw"
                         class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

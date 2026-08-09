@@ -4,6 +4,5 @@ date: "1994-6"
 category: "storiografia"
 slug: "inedita-pergamena"
 image: "./covers/inedita-pergamena.jpg"
-imageAlt: "Un'inedita pergamena cavense del 1316 e la chiesa di S. Maria Maddalena di Molfetta"
 ---
 _Un'inedita pergamena cavense del 1316 e la chiesa di S. Maria Maddalena di Molfetta_, in «Luce e Vita Documentazione», Molfetta, 1994, n. 1, pp. 247-267.

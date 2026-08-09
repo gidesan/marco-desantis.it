@@ -4,7 +4,6 @@ date: "2016-01-01"
 category: "poesia"
 slug: "ritorno-di-fiamma"
 image: "./covers/ritorno-di-fiamma.jpg"
-imageAlt: "Ritorno di fiamma"
 ---
 _Ritorno di fiamma._ \
 _Poesie umoristiche e satiriche_ \

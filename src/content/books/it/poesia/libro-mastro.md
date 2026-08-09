@@ -4,7 +4,6 @@ date: "1991-01-01"
 category: "poesia"
 slug: "libro-mastro"
 image: "./covers/libro-mastro.jpg"
-imageAlt: "Libro mastro"
 ---
 _Libro mastro_ \
 Levante Editori, Bari \

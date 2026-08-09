@@ -4,7 +4,6 @@ date: "2013"
 category: "storiografia"
 slug: "w-salvemini"
 image: "./covers/w-salvemini.jpg"
-imageAlt: "W Salvemini - Le elezioni politiche del 1913 nei collegi di Molfetta e Bitonto"
 ---
 _W Salvemini - Le elezioni politiche del 1913 nei collegi di Molfetta e Bitonto_ \
 (Aracne, Roma, 2013).

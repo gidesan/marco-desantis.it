@@ -4,7 +4,6 @@ date: "1984-01-01"
 category: "poesia"
 slug: "uomini-di-sempre"
 image: "./covers/uomini-di-sempre.jpg"
-imageAlt: "Uomini di sempre"
 ---
 _Uomini di sempre_ \
 Lacaita, Manduria \

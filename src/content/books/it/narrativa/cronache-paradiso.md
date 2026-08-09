@@ -4,6 +4,5 @@ date: "2001-08-01"
 category: "narrativa"
 slug: "cronache-paradiso"
 image: "./covers/cronache-paradiso.jpg"
-imageAlt: "Cronache del Paradiso"
 ---
 _Cronache del Paradiso_, in «La Vallisa», a. XX, n.59-60, Bari, agosto-dicembre 2001, pp. 123-126.
