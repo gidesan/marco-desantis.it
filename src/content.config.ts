@@ -47,6 +47,8 @@ const books = defineCollection({
       // contributions, which don't have a "publisher" of their own).
       publisher: z.string().optional(),
       city: z.string().optional(),
+      // Set only for works that won a literary award (per the biography).
+      award: z.string().optional(),
       // Mixed granularity in the source data (YYYY / YYYY-MM / YYYY-MM-DD),
       // kept as a string and sorted lexically (ISO-ordered).
       date: z.string(),

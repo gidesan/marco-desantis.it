@@ -2,6 +2,7 @@
 title: "Uomini di sempre"
 publisher: "Lacaita"
 city: "Manduria"
+award: "Premio «Umberto Saba» (1989)"
 date: "1984-01-01"
 category: "poesia"
 slug: "uomini-di-sempre"

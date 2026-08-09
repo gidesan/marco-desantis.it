@@ -15,6 +15,7 @@ import {
 } from "@/i18n/utils";
 import { defaultLocale, isLocale } from "@/i18n/locales";
 import { bookDisplayTitle, bookImageAlt } from "@utils/books";
+import IconAward from "@components/icons/IconAward.astro";
 
 export async function getStaticPaths() {
   const books = await getCollection(
@@ -126,6 +127,16 @@ const lightboxId = `book-cover-${book.data.slug}`;
               <p class="font-body text-sm uppercase tracking-widest text-muted-foreground">
                 {year}
               </p>
+            )
+          }
+          {
+            book.data.award && (
+              <div class="mt-4 flex items-center gap-2 text-primary">
+                <IconAward class="h-4 w-4 shrink-0" strokeWidth={1.5} />
+                <p class="font-body text-sm uppercase tracking-widest">
+                  {book.data.award}
+                </p>
+              </div>
             )
           }
           <Divider class="my-8 mx-0!" />

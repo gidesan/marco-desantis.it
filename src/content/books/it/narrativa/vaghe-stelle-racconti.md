@@ -2,6 +2,7 @@
 title: "«Vaghe stelle» e altri racconti"
 publisher: "Genesi Editrice"
 city: "Torino"
+award: "Premio speciale della critica «Thesaurus»"
 date: "2012-01-01"
 category: "narrativa"
 slug: "vaghe-stelle-racconti"

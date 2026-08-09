@@ -2,6 +2,7 @@
 title: "Lettere dagli argonauti"
 publisher: "Edizioni La Vallisa"
 city: "Bari"
+award: "Premio «Renata Canepa» (2008)"
 date: "2007-01-01"
 category: "poesia"
 slug: "lettere-dagli-argonauti"
