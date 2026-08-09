@@ -12,6 +12,11 @@ import {
   getTextDirection,
 } from "@/i18n/utils";
 import "@styles/global.css";
+// Preloaded so the browser fetches it immediately instead of waiting to parse
+// global.css: it's the weight used by the nav brand wordmark on every page, so
+// without this the fallback serif is visible on first paint and then swaps
+// (FOUC) once the webfont's @font-face is discovered and downloaded.
+import cormorantMedium from "@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2?url";
 
 interface Props {
   title?: string;
@@ -53,6 +58,13 @@ const breadcrumbList = breadcrumbs?.length
 
 <html lang={currentLang} dir={textDirection} class="scroll-smooth scroll-pt-24">
   <head>
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={cormorantMedium}
+      crossorigin
+    />
     <Meta
       title={pageTitle}
       meta={description}

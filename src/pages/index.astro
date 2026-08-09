@@ -31,11 +31,11 @@ const categories = (
     class="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20"
   >
     <div
-      class="absolute top-1/4 left-8 hidden h-32 w-px bg-gradient-to-b from-transparent via-border to-transparent lg:block"
+      class="absolute top-1/4 left-8 hidden h-32 w-px bg-linear-to-b from-transparent via-border to-transparent lg:block"
     >
     </div>
     <div
-      class="absolute top-1/4 right-8 hidden h-32 w-px bg-gradient-to-b from-transparent via-border to-transparent lg:block"
+      class="absolute top-1/4 right-8 hidden h-32 w-px bg-linear-to-b from-transparent via-border to-transparent lg:block"
     >
     </div>
 
@@ -49,14 +49,6 @@ const categories = (
         Marco Ignazio
         <span class="mt-2 block italic text-primary">de Santis</span>
       </h1>
-      <div class="animate-fade-up-delay-2 my-10">
-        <Divider />
-      </div>
-      <blockquote
-        class="animate-fade-up-delay-3 mx-auto max-w-2xl font-serif text-xl italic leading-relaxed text-muted-foreground sm:text-2xl md:text-3xl"
-      >
-        &ldquo;La parola è il ponte tra il silenzio e l'eternità&rdquo;
-      </blockquote>
     </div>
 
     <a
@@ -65,7 +57,7 @@ const categories = (
       aria-label="Scorri verso le opere"
     >
       <span class="font-body text-xs uppercase tracking-widest">Scopri</span>
-      <IconArrowDown class="h-5 w-5 animate-bounce group-hover:[animation:none]" />
+      <IconArrowDown class="h-5 w-5 animate-bounce group-hover:animate-none" />
     </a>
   </section>
 
@@ -118,7 +110,7 @@ const categories = (
             alt="Marco Ignazio de Santis"
             widths={[400, 800]}
             sizes="(min-width: 768px) 40vw, 90vw"
-            class="aspect-[4/5] w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+            class="aspect-4/5 w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
           />
         </div>
         <div>
@@ -128,7 +120,7 @@ const categories = (
           >
             Una vita dedicata alla parola
           </h2>
-          <Divider class="mb-8 !mx-0" />
+          <Divider class="mb-8 mx-0!" />
           <p class="mb-6 font-body leading-relaxed text-muted-foreground">
             Marco Ignazio de Santis è poeta, scrittore e giornalista. La sua
             opera spazia dalla poesia alla narrativa, dalla critica letteraria
