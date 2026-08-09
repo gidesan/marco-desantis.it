@@ -11,6 +11,7 @@ import {
   collectionFilterByLocale,
 } from "@/i18n/utils";
 import { bookImageAlt } from "@utils/books";
+import { excerptFromBody } from "@utils/content";
 
 export async function getStaticPaths() {
   // Enumerate the category routes once from the (locale-filtered) collection.
@@ -47,7 +48,7 @@ const title = `${category.data.title} — ${SITE.title}`;
 
 <BaseLayout
   title={title}
-  description={category.data.description}
+  description={excerptFromBody(category.body)}
   breadcrumbs={[
     { label: tl("nav.opere"), href: url("opere") },
     { label: category.data.title },
@@ -62,16 +63,10 @@ const title = `${category.data.title} — ${SITE.title}`;
           {category.data.title}
         </h1>
         <Divider class="mb-8 mx-0!" />
-        {
-          category.data.description && (
-            <p class="font-body text-lg leading-relaxed text-muted-foreground">
-              {category.data.description}
-            </p>
-          )
-        }
       </div>
 
-      {/* Long-form category body (Poesia intro, Giornalismo & Critica lists) */}
+      {/* Category body: opens with the description, then any long-form
+          content (Poesia intro, Giornalismo & Critica lists). */}
       <Prose class="mb-16">
         <Content />
       </Prose>

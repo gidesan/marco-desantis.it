@@ -2,9 +2,12 @@
 import { z, defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 
-// The 8 literary categories (poesia, narrativa, ...). Optional markdown body is
-// used for long-form content (the Giornalismo list, the Critica "tutti" list,
-// the Poesia intro). Entry ids are locale-prefixed (e.g. "it/poesia").
+// The 8 literary categories (poesia, narrativa, ...). Markdown body holds the
+// category's description plus any long-form content (the Giornalismo list,
+// the Critica "tutti" list, the Poesia intro) — there's no separate
+// `description` field; the body's first paragraph doubles as the short
+// excerpt shown on /opere (see `excerptFromBody` in @utils/content).
+// Entry ids are locale-prefixed (e.g. "it/poesia").
 const categories = defineCollection({
   loader: glob({
     pattern: "**/[^_]*.{md,mdx}",
@@ -16,7 +19,6 @@ const categories = defineCollection({
       title: z.string(),
       order: z.number(),
       icon: z.string(),
-      description: z.string().optional(),
       image: image().optional(),
       imageAlt: z.string().optional(),
     }),

@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Eyebrow from "@components/ui/Eyebrow.astro";
 import Divider from "@components/ui/Divider.astro";
 import CategoryIcon from "@components/icons/CategoryIcon.astro";
 import IconArrowForward from "@components/icons/IconArrowForward.astro";
@@ -11,6 +10,7 @@ import {
   createUrlTranslator,
   collectionFilterByLocale,
 } from "@/i18n/utils";
+import { excerptFromBody } from "@utils/content";
 
 const tl = createTranslator(Astro.currentLocale);
 const url = createUrlTranslator(Astro.currentLocale);
@@ -24,13 +24,12 @@ const categories = (
 
 const title = `${tl("opere.title")} — ${SITE.title}`;
 const description =
-  "Le opere di Marco Ignazio de Santis: poesia, narrativa, critica letteraria, storiografia, etnografia, dialettologia, linguistica e giornalismo.";
+  "Gli ambiti delle opere di Marco Ignazio de Santis: poesia, narrativa, critica letteraria, storiografia, etnografia, dialettologia, linguistica e giornalismo.";
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="px-6 pt-32 pb-16 lg:px-4">
     <div class="mx-auto max-w-3xl text-center">
-      <Eyebrow class="animate-fade-up mb-4">{tl("opere.eyebrow")}</Eyebrow>
       <h1
         class="animate-fade-up-delay-1 mb-6 font-serif text-4xl font-medium text-foreground md:text-5xl lg:text-6xl"
       >
@@ -62,7 +61,7 @@ const description =
                     <IconArrowForward class="h-5 w-5 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary" />
                   </div>
                   <p class="font-body leading-relaxed text-muted-foreground">
-                    {cat.data.description}
+                    {excerptFromBody(cat.body)}
                   </p>
                 </div>
               </div>

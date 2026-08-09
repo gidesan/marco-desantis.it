@@ -3,8 +3,9 @@ code: "critica-letteraria"
 title: "Critica Letteraria"
 order: 3
 icon: "critica-letteraria"
-description: "Saggi su autori italiani del Novecento, tra cui Pirandello, Chiarelli, Montale, Comi, Bodini e altri autori del ’900 (Genesi, Torino 2023)."
 ---
+
+Saggi su autori italiani del Novecento.
 
 ## Elenco generale
 

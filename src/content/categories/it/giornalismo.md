@@ -3,8 +3,9 @@ code: "giornalismo"
 title: "Giornalismo"
 order: 8
 icon: "giornalismo"
-description: "Centinaia di elzeviri e articoli culturali pubblicati dal 1989 al 1998 su quotidiani italiani e svizzeri, tra cui «Giornale di Brescia» e «Corriere del Ticino»."
 ---
+
+Elzeviri e articoli culturali pubblicati dal 1989 al 1998 su quotidiani italiani e svizzeri, tra cui “Giornale di Brescia“ e “Corriere del Ticino“.
 
 ## Elenco degli articoli
 
