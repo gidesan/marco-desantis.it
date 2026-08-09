@@ -1,12 +1,12 @@
 ---
-title: "\"«È una scimmia pazza la mente». L'universo poetico di Daniele"
+title: "«È una scimmia pazza la mente». L'universo poetico di Daniele Giancane"
+publisher: "Solfanelli"
+city: "Chieti"
 date: "2019-01-01"
 category: "critica-letteraria"
 slug: "scimmia-pazza-mente"
 image: "./covers/scimmia-pazza-mente.jpg"
 ---
-_«È una scimmia pazza la mente». L’universo poetico di Daniele
-Giancane_, Solfanelli, Chieti, 2019. \
 In questo libro il critico e poeta Marco Ignazio de Santis ripercorre
 l'itinerario poetico di Daniele Giancane dal barricadiero e apocalittico
 vaticinio nel brulichìo delle metropoli (_Vedere e non vedere_, 1969;

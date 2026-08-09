@@ -41,6 +41,10 @@ const books = defineCollection({
       // Italian translation of the title, for works originally published
       // under a foreign-language title. Rendered in parentheses after `title`.
       translatedTitle: z.string().optional(),
+      // Set only for standalone books (not journal articles or anthology
+      // contributions, which don't have a "publisher" of their own).
+      publisher: z.string().optional(),
+      city: z.string().optional(),
       // Mixed granularity in the source data (YYYY / YYYY-MM / YYYY-MM-DD),
       // kept as a string and sorted lexically (ISO-ordered).
       date: z.string(),

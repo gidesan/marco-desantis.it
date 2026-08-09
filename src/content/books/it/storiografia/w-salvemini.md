@@ -1,13 +1,12 @@
 ---
 title: "W Salvemini - Le elezioni politiche del 1913 nei collegi di Molfetta e Bitonto"
+publisher: "Aracne"
+city: "Roma"
 date: "2013"
 category: "storiografia"
 slug: "w-salvemini"
 image: "./covers/w-salvemini.jpg"
 ---
-_W Salvemini - Le elezioni politiche del 1913 nei collegi di Molfetta e Bitonto_ \
-(Aracne, Roma, 2013).
-
 [Scheda su
 aracneeditrice.it](http://www.aracneeditrice.it/aracneweb/index.php/pubblicazione.html?item=9788854859654)\
 [Acquista il libro su

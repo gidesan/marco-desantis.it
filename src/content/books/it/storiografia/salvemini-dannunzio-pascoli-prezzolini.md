@@ -1,12 +1,12 @@
 ---
 title: "Salvemini - d'Annunzio - Pascoli - Prezzolini & C. Personaggi e vicende dell'Italia del primo '900"
+publisher: "Edizioni Helicon"
+city: "Arezzo"
 date: "2019"
 category: "storiografia"
 slug: "salvemini-dannunzio-pascoli-prezzolini"
 image: "./covers/salvemini-dannunzio-pascoli-prezzolini.jpg"
 ---
-_Salvemini - d'Annunzio - Pascoli - Prezzolini & C. Personaggi e vicende dell'Italia del primo '900_ (Edizioni Helicon, Arezzo 2019).
-
 > «Vicende e personaggi. Artisti e intellettuali. Cultura e politica. Il
 > saggio di Marco Ignazio de Santis è una analisi matura e ben condotta
 > sulla cultura italiana del primo Novecento, cultura politica e

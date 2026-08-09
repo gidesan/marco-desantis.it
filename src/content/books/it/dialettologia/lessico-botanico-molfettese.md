@@ -1,8 +1,10 @@
 ---
 title: "Lessico botanico molfettese. Storia - Tradizioni - Etimologie"
+publisher: "Centro Studi Molfettesi"
+city: "Molfetta"
 date: "2014"
 category: "dialettologia"
 slug: "lessico-botanico-molfettese"
 image: "./covers/lessico-botanico-molfettese.jpg"
 ---
-_Lessico botanico molfettese. Storia - Tradizioni - Etimologie_, Centro Studi Molfettesi, Molfetta, 2014 (“Quaderni del Centro Studi Molfettesi“, n. 9)
+“Quaderni del Centro Studi Molfettesi“, n. 9.

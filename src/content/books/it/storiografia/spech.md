@@ -1,13 +1,12 @@
 ---
 title: "Un amico di Garibaldi: Eliodoro Spech, cantante, patriota e soldato"
+publisher: "Inprinting"
+city: "Molfetta"
 date: "2011"
 category: "storiografia"
 slug: "spech"
 image: "./covers/spech.jpg"
 ---
-_Un amico di Garibaldi: Eliodoro Spech, cantante, patriota e soldato_
-(Inprinting, Molfetta, 2011).
-
 [Acquista il libro su
 libreriauniversitaria.it](https://www.libreriauniversitaria.it/amico-garibaldi-eliodoro-spech-cantante/libro/9788896242032)\
 [Acquista il libro su
