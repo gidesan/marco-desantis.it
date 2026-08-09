@@ -1,5 +1,6 @@
 ---
-title: "Jesen u srcu (L'autunno nel cuore)"
+title: "Jesen u srcu"
+translatedTitle: "L'autunno nel cuore"
 date: "1992-01-01"
 category: "poesia"
 slug: "jesen-u-srcu"

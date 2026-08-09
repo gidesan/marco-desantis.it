@@ -38,6 +38,9 @@ const books = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      // Italian translation of the title, for works originally published
+      // under a foreign-language title. Rendered in parentheses after `title`.
+      translatedTitle: z.string().optional(),
       // Mixed granularity in the source data (YYYY / YYYY-MM / YYYY-MM-DD),
       // kept as a string and sorted lexically (ISO-ordered).
       date: z.string(),

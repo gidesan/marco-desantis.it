@@ -1,5 +1,6 @@
 ---
-title: "Në kërkim të bashkës së artë (Alla ricerca del vello d'oro)"
+title: "Në kërkim të bashkës së artë"
+translatedTitle: "Alla ricerca del vello d'oro"
 date: "2017-01-01"
 category: "poesia"
 slug: "ricerca-vello-oro"
