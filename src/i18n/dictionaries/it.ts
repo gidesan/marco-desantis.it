@@ -12,7 +12,6 @@ export const it = {
     "nav.home": "Home",
     "nav.biografia": "Biografia",
     "nav.opere": "Opere",
-    "nav.contatti": "Contatti",
     "nav.searchPlaceholder": "Cerca nel sito...",
     "nav.searchClose": "Chiudi la ricerca",
 
