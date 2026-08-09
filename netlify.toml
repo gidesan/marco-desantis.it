@@ -1,7 +1,11 @@
 # Static (SSG) Astro site on Netlify — no adapter needed.
 # https://docs.astro.build/en/guides/deploy/netlify/
+#
+# Package manager is pnpm (pnpm-lock.yaml present + "packageManager" in
+# package.json). Netlify's build image detects pnpm-lock.yaml and runs
+# `pnpm install` automatically before the build command below.
 [build]
-  command = "npm run build"
+  command = "pnpm run build"
   publish = "dist"
 
 [build.environment]
