@@ -1,10 +1,9 @@
 ---
-import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Eyebrow from "@components/ui/Eyebrow.astro";
+import { SITE } from "@/site";
 import Divider from "@components/ui/Divider.astro";
 import portrait from "@images/marco-ignazio-de-santis.jpg";
-import { SITE } from "@/site";
+import { Image } from "astro:assets";
 
 const title = `Biografia — ${SITE.title}`;
 const description =
@@ -14,7 +13,6 @@ const description =
 <BaseLayout title={title} description={description}>
   <section class="px-6 pt-32 pb-16">
     <div class="mx-auto max-w-3xl text-center">
-      <Eyebrow class="animate-fade-up mb-4">Chi sono</Eyebrow>
       <h1
         class="animate-fade-up-delay-1 mb-6 font-serif text-4xl font-medium text-foreground md:text-5xl lg:text-6xl"
       >
@@ -35,7 +33,7 @@ const description =
                 alt="Marco Ignazio de Santis"
                 widths={[300, 600]}
                 sizes="(min-width: 768px) 30vw, 90vw"
-                class="aspect-[3/4] w-full object-cover"
+                class="aspect-3/4 w-full object-cover"
               />
             </div>
           </div>
@@ -51,14 +49,10 @@ const description =
             del semestrale letterario «La calce &amp; il dado» e ha collaborato a
             molte riviste, come «Alfabeta», «Misure critiche», «Alba Pratalia»,
             «I fiori del male», «Rivista italiana di letteratura dialettale», «La
-            Vallisa», «Rivista di scienze religiose», ecc.
-          </p>
-
-          <p class="font-body leading-relaxed text-muted-foreground">
-            Collabora a «Vernice», «La Nuova Tribuna Letteraria», «Risorgimento e
-            Mezzogiorno», «Archivio Storico Pugliese» e «Quindici giorni». Ha
-            diretto le riviste «Studi Molfettesi» (1996-2000) e «Report»
-            (2005-2009).
+            Vallisa», «Rivista di scienze religiose», ecc. Collabora a «Vernice»,
+            «La Nuova Tribuna Letteraria», «Risorgimento e Mezzogiorno», «Archivio
+            Storico Pugliese» e «Quindici giorni». Ha diretto le riviste «Studi
+            Molfettesi» (1996-2000) e «Report» (2005-2009).
           </p>
 
           <p class="font-body leading-relaxed text-muted-foreground">
@@ -66,21 +60,12 @@ const description =
             elzeviri e articoli culturali su quotidiani italiani e svizzeri
             («Giornale di Brescia», «Prealpina», «Gazzetta di Mantova», «Gazzetta
             di Parma», «L'arena», «Quotidiano» di Lecce, «La Provincia»,
-            «Libertà», «Messaggero Veneto», «Corriere del Ticino», «Il Dovere» di
-            Bellinzona, ecc.). Fra i numerosi scritti critici si segnala
-            <em
+            «Libertà», «Messagero Veneto», «Corriere del Ticino», «Il Dovere» di
+            Bellinzona, ecc.). Fra i numerosi scritti critici si segnala <em
               >Pirandello, Chiarelli, Montale, Comi, Bodini e altri autori del
               '900</em
             > (Genesi, Torino 2023).
           </p>
-
-          <blockquote class="my-8 border-l-2 border-primary py-4 pl-6">
-            <p class="font-serif text-xl italic text-foreground">
-              &ldquo;Scrivere è un atto di resistenza contro l'oblio, un
-              tentativo di dare forma permanente ai pensieri che altrimenti
-              svanirebbero.&rdquo;
-            </p>
-          </blockquote>
 
           <p class="font-body leading-relaxed text-muted-foreground">
             Tra i riconoscimenti ricevuti figurano il Premio della Cultura della
@@ -115,8 +100,7 @@ const description =
             È uno specialista di studi salveminiani, come <em
               >Picca, Salvemini, mons. Picone e l'esperimento riformista
               molfettese del 1902-1904</em
-            > (in «Studi Molfettesi», n. 13-14, maggio-dicembre 2000, pp. 9-86),
-            <em
+            > (in «Studi Molfettesi», n. 13-14, maggio-dicembre 2000, pp. 9-86), <em
               >W Salvemini. Le elezioni politiche del 1913 nei collegi di Molfetta
               e Bitonto</em
             > (Aracne, Roma 2013), <em
