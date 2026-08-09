@@ -19,8 +19,6 @@ export const it = {
     "breadcrumb.ariaLabel": "Percorso di navigazione",
 
     // Footer
-    "footer.nav.title": "Navigazione",
-    "footer.contact.title": "Contatti",
     "footer.copyright":
       "© {year} Marco Ignazio de Santis. Tutti i diritti riservati.",
 
