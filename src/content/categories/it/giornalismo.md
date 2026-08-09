@@ -7,8 +7,6 @@ icon: "giornalismo"
 
 Elzeviri e articoli culturali pubblicati dal 1989 al 1998 su quotidiani italiani e svizzeri, tra cui “Giornale di Brescia“ e “Corriere del Ticino“.
 
-## Elenco degli articoli
-
 1.  _I muretti di Puglia, un universo da salvare_, in «Giornale di
     Brescia», 30 marzo 1989, p. 3; poi in «Libertà», Piacenza, 1 aprile
     1989, p. 3.
