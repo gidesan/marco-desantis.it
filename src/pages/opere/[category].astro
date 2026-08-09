@@ -12,6 +12,7 @@ import {
 } from "@/i18n/utils";
 import { bookImageAlt } from "@utils/books";
 import { excerptFromBody } from "@utils/content";
+import Button from "@components/ui/Button.astro";
 
 export async function getStaticPaths() {
   // Enumerate the category routes once from the (locale-filtered) collection.
@@ -38,6 +39,15 @@ const books = (
 )
   .filter((b) => b.data.category === category.data.code)
   .sort((a, b) => b.data.date.localeCompare(a.data.date));
+
+// Optional long-form appendix (e.g. Critica Letteraria's full bibliography),
+// linked to from its own /opere/<code>/tutti page rather than shown inline.
+const list = (
+  await getCollection(
+    "categoryLists",
+    collectionFilterByLocale<"categoryLists">(Astro.currentLocale),
+  )
+).find((l) => l.data.category === category.data.code);
 
 const { Content } = await render(category);
 
@@ -111,6 +121,19 @@ const title = `${category.data.title} — ${SITE.title}`;
           <p class="font-body text-muted-foreground">
             {tl("category.booksEmpty")}
           </p>
+        )
+      }
+
+      {
+        list && (
+          <div class="mt-16">
+            <Button
+              variant="cta"
+              href={url(`opere/${category.data.code}/tutti`)}
+            >
+              {tl("category.viewFullList")}
+            </Button>
+          </div>
         )
       }
     </div>

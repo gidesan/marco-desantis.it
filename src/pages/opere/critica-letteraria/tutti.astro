@@ -1,0 +1,71 @@
+---
+import {
+collectionFilterByLocale,
+createTranslator,
+createUrlTranslator,
+} from "@/i18n/utils";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { SITE } from "@/site";
+import IconChevronLeft from "@components/icons/IconChevronLeft.astro";
+import Divider from "@components/ui/Divider.astro";
+import Prose from "@components/ui/Prose.astro";
+import { getCollection, render } from "astro:content";
+
+const tl = createTranslator(Astro.currentLocale);
+const url = createUrlTranslator(Astro.currentLocale);
+
+const category = (
+  await getCollection(
+    "categories",
+    collectionFilterByLocale<"categories">(Astro.currentLocale),
+  )
+).find((c) => c.data.code === "critica-letteraria");
+
+const list = (
+  await getCollection(
+    "categoryLists",
+    collectionFilterByLocale<"categoryLists">(Astro.currentLocale),
+  )
+).find((l) => l.data.category === "critica-letteraria");
+
+if (!list) throw new Error("Missing categoryLists entry: critica-letteraria");
+
+const { Content } = await render(list);
+
+const categoryTitle = category?.data.title ?? "Critica Letteraria";
+const title = `${list.data.title} — ${categoryTitle} — ${SITE.title}`;
+---
+
+<BaseLayout
+  title={title}
+  breadcrumbs={[
+    { label: tl("nav.opere"), href: url("opere") },
+    { label: categoryTitle, href: url("opere/critica-letteraria") },
+    { label: list.data.title },
+  ]}
+>
+  <section class="px-6 pt-10 pb-24 lg:px-4">
+    <div class="mx-auto max-w-5xl">
+      <div class="mb-12">
+        <h1
+          class="mb-6 font-serif text-4xl font-medium text-foreground md:text-5xl lg:text-6xl"
+        >
+          {categoryTitle}
+        </h1>
+        <Divider class="mb-8 mx-0!" />
+      </div>
+
+      <Prose class="mb-16">
+        <Content />
+      </Prose>
+
+      <a
+        href={url("opere/critica-letteraria")}
+        class="group inline-flex items-center gap-3 font-body text-sm tracking-widest uppercase text-primary transition-colors hover:text-terracotta-light"
+      >
+        <IconChevronLeft class="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+        {tl("category.backTo", { category: categoryTitle })}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

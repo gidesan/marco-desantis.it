@@ -24,6 +24,21 @@ const categories = defineCollection({
     }),
 });
 
+// Optional long-form appendix for a category (e.g. Critica Letteraria's full
+// "Elenco generale" bibliography), rendered on its own /opere/<code>/tutti
+// page rather than crowding the category's main curated-works page. `category`
+// is the parent category `code`. Entry ids are locale-prefixed ("it/<code>").
+const categoryLists = defineCollection({
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/category-lists",
+  }),
+  schema: z.object({
+    category: z.string(),
+    title: z.string(),
+  }),
+});
+
 // Individual bibliographic entries. `category` is the parent category `code`
 // (matched manually rather than via reference() to sidestep locale-prefixed id
 // mismatch). Body = the citation markdown. Entry ids look like
@@ -59,4 +74,4 @@ const books = defineCollection({
     }),
 });
 
-export const collections = { categories, books };
+export const collections = { categories, categoryLists, books };

@@ -29,6 +29,7 @@ export const it = {
     "category.booksEmpty":
       "Le opere di questa sezione saranno presto disponibili.",
     "category.backTo": "Torna a {category}",
+    "category.viewFullList": "Vedi l'elenco generale completo",
     "book.eyebrow": "Opera",
     "book.coverAlt": 'Copertina di "{title}"',
 
