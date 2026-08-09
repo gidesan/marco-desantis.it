@@ -86,8 +86,10 @@ const breadcrumbList = breadcrumbs?.length
     <main data-pagefind-body class="grow">
       {
         breadcrumbs?.length ? (
-          <div class="mx-auto w-full max-w-5xl px-6 pt-24 lg:px-8 lg:pt-28">
-            <Breadcrumbs items={breadcrumbs} />
+          <div class="px-6 pt-24 lg:px-8 lg:pt-28">
+            <div class="mx-auto max-w-4xl">
+              <Breadcrumbs items={breadcrumbs} />
+            </div>
           </div>
         ) : null
       }
