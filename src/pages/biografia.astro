@@ -4,8 +4,11 @@ import { SITE } from "@/site";
 import Divider from "@components/ui/Divider.astro";
 import portrait from "@images/marco-ignazio-de-santis.jpg";
 import { Image } from "astro:assets";
+import { createTranslator } from "@/i18n/utils";
 
-const title = `Biografia — ${SITE.title}`;
+const tl = createTranslator(Astro.currentLocale);
+
+const title = `${tl("biografia.pageTitle")} — ${SITE.title}`;
 const description =
   "Biografia di Marco Ignazio de Santis: poeta, scrittore e giornalista, nato a Molfetta nel 1951. Riviste, premi letterari, poesia e studi salveminiani.";
 ---
@@ -16,7 +19,7 @@ const description =
       <h1
         class="animate-fade-up-delay-1 mb-6 font-serif text-4xl font-medium text-foreground md:text-5xl lg:text-6xl"
       >
-        Biografia
+        {tl("biografia.pageTitle")}
       </h1>
       <div class="animate-fade-up-delay-2"><Divider /></div>
     </div>

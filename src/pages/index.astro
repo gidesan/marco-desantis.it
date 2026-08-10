@@ -41,7 +41,7 @@ const categories = (
 
     <div class="mx-auto max-w-4xl text-center">
       <Eyebrow class="animate-fade-up mb-6">
-        Poeta · Scrittore · Giornalista
+        {tl("brand.tagline")}
       </Eyebrow>
       <h1
         class="animate-fade-up-delay-1 mb-8 font-serif text-5xl font-medium tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl"
@@ -54,9 +54,11 @@ const categories = (
     <a
       href="#opere"
       class="group absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
-      aria-label="Scopri: scorri verso le opere"
+      aria-label={tl("home.scrollAriaLabel")}
     >
-      <span class="font-body text-xs uppercase tracking-widest">Scopri</span>
+      <span class="font-body text-xs uppercase tracking-widest">
+        {tl("home.scrollCta")}
+      </span>
       <IconArrowDown class="h-5 w-5 animate-bounce group-hover:animate-none" />
     </a>
   </section>
@@ -114,11 +116,11 @@ const categories = (
           />
         </div>
         <div>
-          <Eyebrow class="mb-4">L'Autore</Eyebrow>
+          <Eyebrow class="mb-4">{tl("home.authorEyebrow")}</Eyebrow>
           <h2
             class="mb-6 font-serif text-3xl font-medium text-foreground md:text-4xl lg:text-5xl"
           >
-            Una vita dedicata alla parola
+            {tl("home.authorHeading")}
           </h2>
           <Divider class="mb-8 mx-0!" />
           <p class="mb-6 font-body leading-relaxed text-muted-foreground">
@@ -131,7 +133,7 @@ const categories = (
             con l'amore per le tradizioni e la cultura del territorio.
           </p>
           <Button variant="cta" href={url("biografia")}>
-            Leggi la biografia
+            {tl("home.authorCta")}
           </Button>
         </div>
       </div>

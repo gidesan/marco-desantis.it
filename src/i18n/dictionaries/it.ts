@@ -6,7 +6,7 @@ export const it = {
     // Brand
     "brand.name": "Marco I. de Santis",
     "brand.full": "Marco Ignazio de Santis",
-    "brand.tagline": "Poeta, scrittore e giornalista",
+    "brand.tagline": "Poeta · Scrittore · Giornalista",
 
     // Navigation
     "nav.home": "Home",
@@ -14,9 +14,25 @@ export const it = {
     "nav.opere": "Opere",
     "nav.searchPlaceholder": "Cerca nel sito...",
     "nav.searchClose": "Chiudi la ricerca",
+    "nav.toggleMenu": "Apri/chiudi menu",
 
     // Breadcrumb
     "breadcrumb.ariaLabel": "Percorso di navigazione",
+
+    // Home
+    "home.scrollCta": "Scopri",
+    "home.scrollAriaLabel": "Scopri: scorri verso le opere",
+    "home.authorEyebrow": "L'Autore",
+    "home.authorHeading": "Una vita dedicata alla parola",
+    "home.authorCta": "Leggi la biografia",
+
+    // Biografia
+    "biografia.pageTitle": "Biografia",
+
+    // Lightbox
+    "lightbox.close": "Chiudi",
+    "lightbox.prev": "Precedente",
+    "lightbox.next": "Successivo",
 
     // Footer
     "footer.copyright":
@@ -36,6 +52,7 @@ export const it = {
     "category.backToWorks": "Torna alle opere in evidenza",
     "book.eyebrow": "Opera",
     "book.coverAlt": 'Copertina di "{title}"',
+    "book.enlargeCover": "Ingrandisci la copertina",
 
     // SEO
     "seo.shortDescription": "Poeta, scrittore e giornalista",
