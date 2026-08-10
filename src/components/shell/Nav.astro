@@ -46,7 +46,7 @@ const links = [
         {tl("brand.name")}
       </a>
 
-      <div class="flex items-center gap-6">
+      <div class="flex items-center gap-6 md:gap-14">
         <ul class="hidden items-center gap-8 md:flex">
           {
             links.map((link) => (
@@ -59,18 +59,23 @@ const links = [
           }
         </ul>
 
-        <SearchField />
+        {/* Utility controls (search, mobile menu toggle) — visually separated
+            from the page-navigation links above, since they're a different
+            kind of action rather than another destination. */}
+        <div class="flex items-center gap-4">
+          <SearchField />
 
-        <button
-          data-nav-toggle
-          class="p-2 text-foreground transition-colors hover:text-primary md:hidden"
-          aria-label="Apri/chiudi menu"
-          aria-expanded="false"
-          aria-controls="nav-mobile"
-        >
-          <IconMenu data-icon-menu class="h-6 w-6" />
-          <IconClose data-icon-close class="hidden h-6 w-6" />
-        </button>
+          <button
+            data-nav-toggle
+            class="p-2 text-foreground transition-colors hover:text-primary md:hidden"
+            aria-label="Apri/chiudi menu"
+            aria-expanded="false"
+            aria-controls="nav-mobile"
+          >
+            <IconMenu data-icon-menu class="h-6 w-6" />
+            <IconClose data-icon-close class="hidden h-6 w-6" />
+          </button>
+        </div>
       </div>
     </div>
 
