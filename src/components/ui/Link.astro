@@ -1,0 +1,39 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+// Hyperlink primitive.
+//   - "inline": body / footer text link.
+//   - "nav": uppercase tracked nav link with the animated underline wipe.
+interface Props extends Omit<HTMLAttributes<"a">, "class"> {
+  href: string;
+  variant?: "inline" | "nav";
+  active?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  variant = "inline",
+  active = false,
+  class: extra = "",
+  ...rest
+} = Astro.props;
+
+const variants = {
+  inline: "font-body text-sm text-foreground hover:text-primary transition-colors",
+  nav: "elegant-underline font-body text-sm tracking-widest uppercase transition-colors",
+} as const;
+
+const navState = active
+  ? "text-primary"
+  : "text-muted-foreground hover:text-foreground";
+---
+
+<a
+  href={href}
+  class:list={[variants[variant], variant === "nav" && navState, extra]}
+  aria-current={active ? "page" : undefined}
+  {...rest}
+>
+  <slot />
+</a>

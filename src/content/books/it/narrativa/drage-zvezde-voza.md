@@ -1,0 +1,9 @@
+---
+title: "O, drage zvezde voza"
+translatedTitle: "Vaghe stelle dell'Orsa"
+date: "2005-01-01"
+category: "narrativa"
+slug: "drage-zvezde-voza"
+image: "./covers/drage-zvezde-voza.jpg"
+---
+_O, drage zvezde voza_ ("Vaghe stelle dell'Orsa"), traduzione in sloveno di Jana Okoren in _Zgodbe z Juga. Antologija južnoitalijanske kratke proze_ (Storie del Sud. Antologia di brevi prose del Sud italiano), Vodnikova založba (DSKG) -- KUD Sodobnost International, Ljubljana, 2005, pp. 30-37.

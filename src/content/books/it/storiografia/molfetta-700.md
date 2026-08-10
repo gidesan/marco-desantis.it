@@ -1,0 +1,8 @@
+---
+title: "Molfetta nella descrizione di viaggiatori del Settecento e le vicende della nitriera borbonica al Pulo"
+date: "2010"
+category: "storiografia"
+slug: "molfetta-700"
+image: "./covers/molfetta-700.jpg"
+---
+_Molfetta nella descrizione di viaggiatori del Settecento e le vicende della nitriera borbonica al Pulo_, in AA. VV., “Studi in onore di mons. L. Minervini“, a cura di Luigi Michele de Palma, Mezzina, Molfetta, 1983, pp. 67-119 (Quaderni dell'Archivio Diocesano di Molfetta, n. 4); 2.a edizione, con progetto grafico e fotografie di Pasquale Modugno, La Nuova Mezzina, Molfetta, 2010.

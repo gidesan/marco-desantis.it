@@ -1,0 +1,129 @@
+---
+import SearchField from "@components/shell/SearchField.astro";
+import SearchOverlay from "@components/shell/SearchOverlay.astro";
+import IconMenu from "@components/icons/IconMenu.astro";
+import IconClose from "@components/icons/IconClose.astro";
+import Link from "@components/ui/Link.astro";
+import {
+  createTranslator,
+  createUrlTranslator,
+  getPathWithoutLocale,
+} from "@/i18n/utils";
+
+const tl = createTranslator(Astro.currentLocale);
+const url = createUrlTranslator(Astro.currentLocale);
+
+const currentPath = getPathWithoutLocale(
+  Astro.url.pathname,
+  Astro.currentLocale ?? "it",
+);
+const normalize = (p: string) => (p === "/" ? p : p.replace(/\/$/, ""));
+const path = normalize(currentPath);
+const isActive = (p: string) =>
+  p === "/" ? path === "/" : path === p || path.startsWith(`${p}/`);
+
+const links = [
+  { name: tl("nav.home"), href: url(""), active: isActive("/") },
+  {
+    name: tl("nav.biografia"),
+    href: url("biografia"),
+    active: isActive("/biografia"),
+  },
+  { name: tl("nav.opere"), href: url("opere"), active: isActive("/opere") },
+];
+---
+
+<nav
+  class="fixed inset-x-0 top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-sm"
+>
+  <div class="relative mx-auto w-full max-w-6xl px-6 lg:px-4">
+    <SearchOverlay />
+    <div class="flex h-16 items-center justify-between lg:h-20">
+      <a
+        href={url("")}
+        class="font-serif text-xl font-medium tracking-wide text-foreground transition-colors hover:text-primary lg:text-2xl"
+      >
+        {tl("brand.name")}
+      </a>
+
+      <div class="flex items-center gap-6 md:gap-14">
+        <ul class="hidden items-center gap-8 md:flex">
+          {
+            links.map((link) => (
+              <li>
+                <Link href={link.href} variant="nav" active={link.active}>
+                  {link.name}
+                </Link>
+              </li>
+            ))
+          }
+        </ul>
+
+        {/* Utility controls (search, mobile menu toggle) — visually separated
+            from the page-navigation links above, since they're a different
+            kind of action rather than another destination. */}
+        <div class="flex items-center gap-4">
+          <SearchField />
+
+          <button
+            data-nav-toggle
+            class="p-2 text-foreground transition-colors hover:text-primary md:hidden"
+            aria-label={tl("nav.toggleMenu")}
+            aria-expanded="false"
+            aria-controls="nav-mobile"
+          >
+            <IconMenu data-icon-menu class="h-6 w-6" />
+            <IconClose data-icon-close class="hidden h-6 w-6" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="nav-mobile"
+      data-nav-mobile
+      class="hidden border-t border-border/50 py-4 md:hidden"
+    >
+      <ul class="flex flex-col gap-4">
+        {
+          links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                aria-current={link.active ? "page" : undefined}
+                class:list={[
+                  "block py-2 font-body text-sm uppercase tracking-widest transition-colors",
+                  link.active
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground",
+                ]}
+              >
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-nav-toggle]").forEach(
+    (btn) => {
+      btn.addEventListener("click", () => {
+        const mobile = document.querySelector<HTMLElement>("[data-nav-mobile]");
+        if (!mobile) return;
+        mobile.classList.toggle("hidden");
+        const isOpen = !mobile.classList.contains("hidden");
+        btn.setAttribute("aria-expanded", String(isOpen));
+        btn
+          .querySelector<SVGElement>("[data-icon-menu]")
+          ?.classList.toggle("hidden", isOpen);
+        btn
+          .querySelector<SVGElement>("[data-icon-close]")
+          ?.classList.toggle("hidden", !isOpen);
+      });
+    },
+  );
+</script>

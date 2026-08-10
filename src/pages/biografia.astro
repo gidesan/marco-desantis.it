@@ -1,0 +1,124 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { SITE } from "@/site";
+import Divider from "@components/ui/Divider.astro";
+import portrait from "@images/marco-ignazio-de-santis.jpg";
+import { Image } from "astro:assets";
+import { createTranslator } from "@/i18n/utils";
+
+const tl = createTranslator(Astro.currentLocale);
+
+const title = `${tl("biografia.pageTitle")} — ${SITE.title}`;
+const description =
+  "Biografia di Marco Ignazio de Santis: poeta, scrittore e giornalista, nato a Molfetta nel 1951. Riviste, premi letterari, poesia e studi salveminiani.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="px-6 pt-32 pb-16 lg:px-4">
+    <div class="mx-auto max-w-3xl text-center">
+      <h1
+        class="animate-fade-up-delay-1 mb-6 font-serif text-4xl font-medium text-foreground md:text-5xl lg:text-6xl"
+      >
+        {tl("biografia.pageTitle")}
+      </h1>
+      <div class="animate-fade-up-delay-2"><Divider /></div>
+    </div>
+  </section>
+
+  <section class="px-6 pb-24 lg:px-4">
+    <div class="mx-auto max-w-4xl">
+      <div class="grid gap-12 md:grid-cols-3 lg:gap-16">
+        <div class="md:col-span-1">
+          <div class="sticky top-24">
+            <div class="overflow-hidden border border-border bg-card">
+              <Image
+                src={portrait}
+                alt="Marco Ignazio de Santis"
+                widths={[300, 600]}
+                sizes="(min-width: 768px) 30vw, 90vw"
+                class="aspect-3/4 w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6 md:col-span-2">
+          <p class="font-body text-lg leading-relaxed text-foreground">
+            <span
+              class="float-left mr-3 mt-1 font-serif text-5xl leading-none text-primary"
+              >M</span
+            >arco Ignazio de Santis, già docente di lettere nel Liceo linguistico
+            e pedagogico «Vito Fornari», è nato a Molfetta nel 1951. È redattore
+            del semestrale letterario «La calce &amp; il dado» e ha collaborato a
+            molte riviste, come «Alfabeta», «Misure critiche», «Alba Pratalia»,
+            «I fiori del male», «Rivista italiana di letteratura dialettale», «La
+            Vallisa», «Rivista di scienze religiose», ecc. Collabora a «Vernice»,
+            «La Nuova Tribuna Letteraria», «Risorgimento e Mezzogiorno», «Archivio
+            Storico Pugliese» e «Quindici giorni». Ha diretto le riviste «Studi
+            Molfettesi» (1996-2000) e «Report» (2005-2009).
+          </p>
+
+          <p class="font-body leading-relaxed text-muted-foreground">
+            Giornalista pubblicista, dal 1989 al 1998 ha scritto centinaia di
+            elzeviri e articoli culturali su quotidiani italiani e svizzeri
+            («Giornale di Brescia», «Prealpina», «Gazzetta di Mantova», «Gazzetta
+            di Parma», «L'arena», «Quotidiano» di Lecce, «La Provincia»,
+            «Libertà», «Messagero Veneto», «Corriere del Ticino», «Il Dovere» di
+            Bellinzona, ecc.). Fra i numerosi scritti critici si segnala <em
+              >Pirandello, Chiarelli, Montale, Comi, Bodini e altri autori del
+              '900</em
+            > (Genesi, Torino 2023).
+          </p>
+
+          <p class="font-body leading-relaxed text-muted-foreground">
+            Tra i riconoscimenti ricevuti figurano il Premio della Cultura della
+            Presidenza del Consiglio per il 1986, il Premio «Umberto Saba» nel
+            1989 per la raccolta <em>Uomini di sempre</em> (Lacaita, Manduria
+            1984), il Premio «Renata Canepa» nel 2008 per la silloge <em
+              >Lettere dagli argonauti</em
+            > (La Vallisa, Bari 2007), il Fiorino d'Oro per la saggistica al XXIX
+            Premio Firenze nel 2011 per la biografia <em
+              >Un amico di Garibaldi: Eliodoro Spech, cantante, patriota e
+              soldato</em
+            > (Inprinting, Molfetta 2011) e il Premio speciale della critica
+            «Thesaurus» per <em>«Vaghe stelle» e altri racconti</em> (Genesi,
+            Torino 2012).
+          </p>
+
+          <p class="font-body leading-relaxed text-muted-foreground">
+            Le altre sue sillogi poetiche sono <em>Libro mastro</em> (Levante,
+            Bari 1991), <em>Jesen u srcu</em> («L'autunno nel cuore», Naučna
+            Knjiga, Belgrado 1992), <em>Dal santuario</em> (Edizioni Helicon,
+            Arezzo 2014), <em>Ritorno di fiamma. Poesie umoristiche e satiriche</em
+            > (Genesi, Torino 2016) e <em>Në kërkim të bashkës së artë</em> («Alla
+            ricerca del vello d'oro», Milosao, Saranda 2017). Nel
+            settembre-ottobre del 2006 ha partecipato, come autore italiano
+            invitato, al 43° International Meeting of Writers di Belgrado. Alcuni
+            suoi articoli, racconti e poesie sono stati tradotti in serbo,
+            croato, spagnolo, albanese, sloveno, francese, inglese, latino,
+            polacco e russo.
+          </p>
+
+          <p class="font-body leading-relaxed text-muted-foreground">
+            È uno specialista di studi salveminiani, come <em
+              >Picca, Salvemini, mons. Picone e l'esperimento riformista
+              molfettese del 1902-1904</em
+            > (in «Studi Molfettesi», n. 13-14, maggio-dicembre 2000, pp. 9-86), <em
+              >W Salvemini. Le elezioni politiche del 1913 nei collegi di Molfetta
+              e Bitonto</em
+            > (Aracne, Roma 2013), <em
+              >Salvemini – d'Annunzio – Pascoli – Prezzolini &amp; C. Personaggi e
+              vicende dell'Italia del primo '900</em
+            > (Edizioni Helicon, Arezzo 2019), <em
+              >Salvemini e le elezioni del 1919</em
+            > (in «Archivio Storico Pugliese», a. LXXIV, Bari, 2021, pp. 164-189)
+            e <em
+              >Giulia Maria Minervini, prima moglie di Gaetano Salvemini</em
+            > (in «Risorgimento e Mezzogiorno», a. XXXIII, n. s., nn. 65-66, Bari,
+            dicembre 2022, pp. 32-67), ecc.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

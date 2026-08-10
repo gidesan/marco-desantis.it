@@ -1,0 +1,61 @@
+---
+import {
+  createTranslator,
+  createUrlTranslator,
+  getTextDirection,
+} from "@/i18n/utils";
+
+export interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  // The trail *excluding* Home — Home is prepended automatically.
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+
+const tl = createTranslator(Astro.currentLocale);
+const url = createUrlTranslator(Astro.currentLocale);
+
+const crumbs: Crumb[] = [{ label: tl("nav.home"), href: url("") }, ...items];
+
+const separator =
+  getTextDirection(Astro.currentLocale ?? "it") === "rtl" ? "‹" : "›";
+---
+
+<nav aria-label={tl("breadcrumb.ariaLabel")} class="font-body">
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+    {
+      crumbs.map((crumb, i) => {
+        const isLast = i === crumbs.length - 1;
+        return (
+          <li class="flex items-center gap-x-2">
+            {crumb.href && !isLast ? (
+              <a
+                href={crumb.href}
+                class="font-medium text-muted-foreground transition-colors hover:text-primary"
+              >
+                {crumb.label}
+              </a>
+            ) : (
+              <span
+                aria-current="page"
+                class="max-w-[16rem] truncate font-medium text-foreground"
+              >
+                {crumb.label}
+              </span>
+            )}
+            {!isLast && (
+              <span aria-hidden="true" class="select-none text-border">
+                {separator}
+              </span>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>

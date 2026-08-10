@@ -1,0 +1,136 @@
+---
+import IconClose from "@components/icons/IconClose.astro";
+import Search from "astro-pagefind/components/Search.astro";
+import { createTranslator } from "@/i18n/utils";
+
+// Full-width Pagefind search overlay that fills the nav's content area. Hidden
+// (inert) until the magnifier toggle opens it.
+const tl = createTranslator(Astro.currentLocale);
+const placeholder = tl("nav.searchPlaceholder");
+const closeLabel = tl("nav.searchClose");
+---
+
+<div
+  id="header-search-overlay"
+  inert
+  style="visibility:hidden"
+  class="search-overlay absolute inset-x-6 inset-y-3 z-30 flex items-center gap-3 bg-background lg:inset-x-4 lg:inset-y-4"
+>
+  <Search
+    instance="header"
+    className="pagefind-header grow"
+    searchboxOptions={{ placeholder }}
+    configOptions={{ showImages: false, showSubResults: true }}
+  />
+  <button
+    type="button"
+    data-search-close
+    aria-label={closeLabel}
+    class="search-close shrink-0 text-muted-foreground transition-colors hover:text-primary"
+  >
+    <IconClose class="h-6 w-6" />
+  </button>
+</div>
+
+<style>
+  .search-overlay {
+    --pf-input-height: 3rem;
+    --pf-input-font-size: 1rem;
+    --pf-searchbox-max-width: 100%;
+    --pf-font: var(--font-body);
+    --pf-text: var(--color-foreground);
+    --pf-background: var(--color-background);
+    --pf-border: var(--color-border);
+    --pf-border-focus: var(--color-primary);
+    --pf-outline-focus: var(--color-primary);
+    --pf-border-radius: 0;
+  }
+
+  .search-overlay :global(.pagefind-header),
+  .search-overlay :global(.pf-searchbox) {
+    width: 100%;
+  }
+
+  /* The "Ctrl K" / "⌘K" hint is decorative (aria-hidden) and only meaningful
+     with a physical keyboard — on phones it just crowds the input.
+     !important: pagefind's own rule for this selector is specificity-boosted
+     (chained :is(*, #\#)), so a plain override loses regardless of order. */
+  @media (max-width: 640px) {
+    .search-overlay :global(.pf-trigger-shortcut) {
+      display: none !important;
+    }
+  }
+
+  .search-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.98);
+    transform-origin: center right;
+    pointer-events: none;
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease,
+      visibility 0s linear 0.22s;
+  }
+
+  .search-overlay.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .search-overlay,
+    .search-overlay.is-open {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const overlay = document.getElementById("header-search-overlay");
+  if (overlay) {
+    const toggles = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-search-toggle]"),
+    );
+    const closeBtn = overlay.querySelector<HTMLButtonElement>(
+      "[data-search-close]",
+    );
+    const searchbox = overlay.querySelector<HTMLElement>("pagefind-searchbox");
+    const focusInput = () =>
+      (
+        overlay.querySelector<HTMLInputElement>(".pf-searchbox-input") ??
+        searchbox
+      )?.focus();
+
+    const isOpen = () => overlay.classList.contains("is-open");
+
+    const setOpen = (open: boolean) => {
+      if (open) {
+        overlay.style.visibility = "";
+        overlay.removeAttribute("inert");
+      } else {
+        overlay.setAttribute("inert", "");
+      }
+      overlay.classList.toggle("is-open", open);
+      toggles.forEach((t) => t.setAttribute("aria-expanded", String(open)));
+      if (open) window.setTimeout(focusInput, 60);
+    };
+
+    toggles.forEach((t) =>
+      t.addEventListener("click", () => setOpen(!isOpen())),
+    );
+    closeBtn?.addEventListener("click", () => setOpen(false));
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen()) {
+        setOpen(false);
+        toggles[0]?.focus();
+      }
+    });
+  }
+</script>

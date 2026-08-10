@@ -1,0 +1,12 @@
+---
+import { createTranslator } from "@/i18n/utils";
+
+const tl = createTranslator(Astro.currentLocale);
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border/50 bg-paper-dark/30 px-6 py-10 lg:px-4">
+  <p class="text-center font-body text-xs text-muted-foreground">
+    {tl("footer.copyright", { year })}
+  </p>
+</footer>

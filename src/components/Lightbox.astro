@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import IconClose from "@components/icons/IconClose.astro";
+import IconChevronLeft from "@components/icons/IconChevronLeft.astro";
+import IconChevronRight from "@components/icons/IconChevronRight.astro";
+import { createTranslator } from "@/i18n/utils";
+
+// CSS-only (`:target`) lightbox. The trigger is any `<a href="#${id}">`; clicking
+// the backdrop or close button navigates to `#`, clearing the target.
+interface Props {
+  id: string;
+  prevId: string;
+  nextId: string;
+  image: ImageMetadata;
+  alt: string;
+  caption?: string;
+  showNav?: boolean;
+}
+
+const { id, prevId, nextId, image, alt, caption, showNav = true } = Astro.props;
+
+const tl = createTranslator(Astro.currentLocale);
+
+const navBase =
+  "absolute top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 text-foreground shadow-lg transition-all duration-200 hover:scale-110 hover:bg-white";
+---
+
+<div
+  id={id}
+  class="pointer-events-none fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-4 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out target:pointer-events-auto target:flex target:opacity-100"
+>
+  <a href="#" class="absolute inset-0 cursor-pointer" aria-label={tl("lightbox.close")}></a>
+
+  {
+    showNav && (
+      <a
+        href={`#${prevId}`}
+        class:list={[navBase, "left-4 sm:left-8"]}
+        aria-label={tl("lightbox.prev")}
+      >
+        <IconChevronLeft class="h-6 w-6" />
+      </a>
+    )
+  }
+
+  <div class="relative max-h-full max-w-full">
+    <Image
+      src={image}
+      alt={alt}
+      format="avif"
+      quality={90}
+      class="max-h-[90vh] max-w-full object-contain"
+    />
+    {
+      caption && (
+        <div class="absolute right-0 bottom-0 left-0 flex items-center justify-center p-4">
+          <div class="bg-black/70 px-4 py-2 text-center text-sm text-white">
+            {caption}
+          </div>
+        </div>
+      )
+    }
+  </div>
+
+  {
+    showNav && (
+      <a
+        href={`#${nextId}`}
+        class:list={[navBase, "right-4 sm:right-8"]}
+        aria-label={tl("lightbox.next")}
+      >
+        <IconChevronRight class="h-6 w-6" />
+      </a>
+    )
+  }
+
+  <a
+    href="#"
+    class="absolute top-4 right-4 z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white text-foreground shadow-lg transition-all duration-200 hover:scale-110 sm:top-8 sm:right-8"
+    aria-label={tl("lightbox.close")}
+  >
+    <IconClose class="h-6 w-6" />
+  </a>
+</div>

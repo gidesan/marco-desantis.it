@@ -1,0 +1,32 @@
+{
+  "ci": {
+    "collect": {
+      "startServerCommand": "pnpm preview",
+      "startServerReadyPattern": "http://localhost",
+      "url": [
+        "http://localhost:4321/",
+        "http://localhost:4321/biografia",
+        "http://localhost:4321/opere",
+        "http://localhost:4321/opere/poesia",
+        "http://localhost:4321/opere/poesia/uomini-di-sempre",
+        "http://localhost:4321/opere/critica-letteraria/tutti"
+      ],
+      "numberOfRuns": 3,
+      "settings": {
+        "preset": "desktop"
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["warn", { "minScore": 0.9 }],
+        "categories:accessibility": ["error", { "minScore": 0.95 }],
+        "categories:best-practices": ["warn", { "minScore": 0.9 }],
+        "categories:seo": ["error", { "minScore": 0.95 }]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": ".lighthouseci"
+    }
+  }
+}

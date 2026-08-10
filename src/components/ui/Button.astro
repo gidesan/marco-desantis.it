@@ -1,0 +1,51 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import IconArrowForward from "@components/icons/IconArrowForward.astro";
+
+// Base button/link primitive for the site.
+//   - "primary": solid terracotta call-to-action (form submit, hero CTA).
+//   - "cta": inline arrow text-link ("Leggi la biografia →").
+// Renders an <a> when `href` is set, otherwise a <button>.
+interface Props extends Omit<HTMLAttributes<"a">, "class" | "type"> {
+  variant?: "primary" | "cta";
+  href?: string;
+  type?: "button" | "submit";
+  arrow?: boolean;
+  class?: string;
+}
+
+const {
+  variant = "primary",
+  href,
+  type = "button",
+  arrow,
+  class: extra = "",
+  ...rest
+} = Astro.props;
+
+const variants = {
+  primary:
+    "inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-body text-sm tracking-widest uppercase transition-colors hover:bg-terracotta-light",
+  cta: "group inline-flex items-center gap-3 font-body text-sm tracking-widest uppercase text-primary transition-colors hover:text-terracotta-light",
+} as const;
+
+const showArrow = arrow ?? variant === "cta";
+const Tag = href ? "a" : "button";
+const attrs = href ? { href } : { type };
+---
+
+<Tag class:list={[variants[variant], extra]} {...attrs} {...rest}>
+  <slot />
+  <slot name="trailing">
+    {
+      showArrow && (
+        <IconArrowForward
+          class:list={[
+            "h-4 w-4",
+            variant === "cta" && "transition-transform group-hover:translate-x-1",
+          ]}
+        />
+      )
+    }
+  </slot>
+</Tag>
