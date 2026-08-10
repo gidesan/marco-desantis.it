@@ -51,6 +51,16 @@ const closeLabel = tl("nav.searchClose");
     width: 100%;
   }
 
+  /* The "Ctrl K" / "⌘K" hint is decorative (aria-hidden) and only meaningful
+     with a physical keyboard — on phones it just crowds the input.
+     !important: pagefind's own rule for this selector is specificity-boosted
+     (chained :is(*, #\#)), so a plain override loses regardless of order. */
+  @media (max-width: 640px) {
+    .search-overlay :global(.pf-trigger-shortcut) {
+      display: none !important;
+    }
+  }
+
   .search-overlay {
     visibility: hidden;
     opacity: 0;
