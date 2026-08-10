@@ -1,8 +1,14 @@
 // @ts-check
+import { fileURLToPath } from "node:url";
+import path from "node:path";
 import js from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import eslintPluginAstro from "eslint-plugin-astro";
+
+// import.meta.dirname needs Node 21.2+ and matching @types/node typings;
+// fileURLToPath is portable across the Node versions this project supports.
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default tseslint.config(
   // Don't lint build output, generated types, or stale local artifacts.
@@ -25,7 +31,7 @@ export default tseslint.config(
     languageOptions: {
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        tsconfigRootDir: __dirname,
         extraFileExtensions: [".astro"],
       },
       globals: {
