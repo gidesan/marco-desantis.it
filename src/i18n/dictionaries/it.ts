@@ -53,6 +53,7 @@ export const it = {
     "book.eyebrow": "Opera",
     "book.coverAlt": 'Copertina di "{title}"',
     "book.enlargeCover": "Ingrandisci la copertina",
+    "book.purchase": "Acquista su {vendor}",
 
     // SEO
     "seo.shortDescription": "Poeta, scrittore e giornalista",
