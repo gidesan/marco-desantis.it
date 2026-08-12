@@ -64,6 +64,10 @@ const books = defineCollection({
       city: z.string().optional(),
       // Set only for works that won a literary award (per the biography).
       award: z.string().optional(),
+      // Storefront where the book can still be bought. Rendered as an
+      // icon + link next to the other metadata; the label shows the shop's
+      // hostname, so no separate vendor name is needed.
+      purchaseUrl: z.string().url().optional(),
       // Mixed granularity in the source data (YYYY / YYYY-MM / YYYY-MM-DD),
       // kept as a string and sorted lexically (ISO-ordered).
       date: z.string(),

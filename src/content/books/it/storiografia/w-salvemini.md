@@ -6,7 +6,5 @@ date: "2013"
 category: "storiografia"
 slug: "w-salvemini"
 image: "./covers/w-salvemini.jpg"
+purchaseUrl: "https://www.libreriauniversitaria.it/salvemini-elezioni-politiche-1913-collegi/libro/9788854859654"
 ---
-
-[Acquista il libro su
-libreriauniversitaria.it](https://www.libreriauniversitaria.it/salvemini-elezioni-politiche-1913-collegi/libro/9788854859654)

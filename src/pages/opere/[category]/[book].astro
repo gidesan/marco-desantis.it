@@ -16,6 +16,7 @@ import {
 import { defaultLocale, isLocale } from "@/i18n/locales";
 import { bookDisplayTitle, bookImageAlt } from "@utils/books";
 import IconAward from "@components/icons/IconAward.astro";
+import IconCart from "@components/icons/IconCart.astro";
 
 export async function getStaticPaths() {
   const books = await getCollection(
@@ -65,6 +66,12 @@ const bookSchema = {
 };
 
 const lightboxId = `book-cover-${book.data.slug}`;
+
+// Label for the purchase link: the storefront's bare hostname
+// ("edizionihelicon.it"), which reads better than a full URL.
+const purchaseVendor = book.data.purchaseUrl
+  ? new URL(book.data.purchaseUrl).hostname.replace(/^www\./, "")
+  : undefined;
 ---
 
 <BaseLayout
@@ -139,6 +146,21 @@ const lightboxId = `book-cover-${book.data.slug}`;
                   {book.data.award}
                 </p>
               </div>
+            )
+          }
+          {
+            book.data.purchaseUrl && (
+              <a
+                href={book.data.purchaseUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group mt-4 inline-flex items-center gap-2 text-primary transition-colors hover:text-terracotta-light"
+              >
+                <IconCart class="h-4 w-4 shrink-0" strokeWidth={1.5} />
+                <span class="font-body text-sm uppercase tracking-widest group-hover:underline underline-offset-4">
+                  {tl("book.purchase", { vendor: purchaseVendor! })}
+                </span>
+              </a>
             )
           }
           <Divider class="my-8 mx-0!" />
