@@ -4,5 +4,6 @@ date: "1995-06"
 category: "storiografia"
 slug: "amico-storici"
 ---
+
 _L'amico degli storici_ \[mons. Antonio Bello\], in «l'altra Molfetta»,
-n. 4, aprile 1995, «speciale».
+n. 4, aprile 1995, «speciale», poi in «Alba Pratalia», n. 18, Sala Bolognese, giugno 2011, p. 566-567.
