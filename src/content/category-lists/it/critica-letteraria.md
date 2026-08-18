@@ -512,3 +512,10 @@ Elenco generale.
 217.  _Le «Favole, fiabe e fole» di Rosaria Scardigno_, in «La calce &amp; il dado», a. II, n. 3, gennaio-giugno 2025, pp. 58-64.
 218.  _Domenico Amato, il poeta della tenerezza_, in «La calce &amp; il dado», a. II, n. 3,
       gennaio-giugno 2025, pp. 128-138.
+219.  _La lingua barese e i suoi cantori_, in Gigi De Santis (a cura di),
+      _L'ultima Musa del Novecento. Liriche dialettali baresi_ di
+      Francesca Romana Capriati, con interventi di Nicola Roncone, Marco
+      Ignazio de Santis e Adriana De Santis, 3AR, Bari 2025, pp. 13-72.
+220.  _Fiure e spine. Vierse a la barese_ di L. Martino, con _Premessa_
+      di Nicola Roncone e _Introduzione_ e traduzioni di Marco Ignazio
+      de Santis, 3AR, Bari 2025.
