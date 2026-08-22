@@ -520,3 +520,6 @@ Elenco generale.
       di Nicola Roncone e _Introduzione_ e traduzioni di Marco Ignazio
       de Santis, 3AR, Bari 2025.
 221.  _Tristan Tzara e la parabola dada_, in «La calce & il dado», a. II, n. 4, luglio-dicembre 2025, pp. 9-20.
+222.  _Poesia come autenticità e canto_, in AA. VV., _Sulla poesia_, a
+      cura di Vito Davoli, quaderno primo, prefazione di Lino Angiuli,
+      Tabula Fati, Chieti 2026.
