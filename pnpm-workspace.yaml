@@ -10,3 +10,26 @@ packages: []
 allowBuilds:
   esbuild: true
   sharp: true
+
+# Forced versions for transitive dependencies flagged by Dependabot. Every entry
+# below sits under @lhci/cli (dev-only Lighthouse CI tooling), which is already
+# on its latest release (0.15.1) and so ships no fix of its own.
+# Drop an entry once @lhci/cli resolves it natively.
+overrides:
+  # Path traversal via unsanitized prefix/postfix (high) and arbitrary write via
+  # a symlinked `dir` (low). Pulled in at 0.0.33 (external-editor -> inquirer)
+  # and 0.1.0 (@lhci/cli); both callers only use tmpNameSync/fileSync, which
+  # 0.2.x keeps compatible.
+  tmp: ^0.2.7
+  # Missing buffer bounds check in v3/v5/v6 when `buf` is provided. @lhci/cli
+  # calls `require('uuid').v4()`, still exported by the v11 CJS build, so the
+  # 8 -> 11 jump is safe here.
+  uuid: ^11.1.1
+  # Unvalidated symlink path traversal in extract-zip, which has no patched
+  # release at all. It reaches us through lighthouse 12.6.1 -> puppeteer-core 24
+  # -> @puppeteer/browsers 2.x; lighthouse 13 moved to @puppeteer/browsers 3.x,
+  # which extracts with modern-tar and drops extract-zip entirely. @lhci/cli
+  # pins lighthouse 12.6.1 exactly, so the bump is forced rather than resolved —
+  # `pnpm lhci` was run against this tree and passes all assertions on every
+  # audited URL.
+  lighthouse: ^13.4.1
