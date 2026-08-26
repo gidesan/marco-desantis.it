@@ -33,3 +33,9 @@ overrides:
   # `pnpm lhci` was run against this tree and passes all assertions on every
   # audited URL.
   lighthouse: ^13.4.1
+  # @lhci/cli asks for proxy-agent ^6.4.0, but @puppeteer/browsers 3.x declares
+  # it as an optional peer at >=8.0.1, so the deduped 6.5.0 left an unmet peer.
+  # Both consumers only want the named `ProxyAgent` export, unchanged across the
+  # 6 -> 8 range; v8 needs Node >= 20 and this repo is on 22 (.node-version and
+  # netlify.toml both), so aligning on 8 satisfies the peer without cost.
+  proxy-agent: ^8.0.2
