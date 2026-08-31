@@ -1,6 +1,6 @@
 ---
 title: "Pasquale Menelao (1825-1909): un mazziniano pugliese a Corfù"
-date: "2018"
+date: "2022"
 category: "storiografia"
 slug: "pasquale-menelao"
 image: "./covers/pasquale-menelao.jpg"
