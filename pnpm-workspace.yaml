@@ -12,9 +12,9 @@ allowBuilds:
   sharp: true
 
 # Forced versions for transitive dependencies flagged by Dependabot. Every entry
-# below sits under @lhci/cli (dev-only Lighthouse CI tooling), which is already
-# on its latest release (0.15.1) and so ships no fix of its own.
-# Drop an entry once @lhci/cli resolves it natively.
+# is dev-only tooling. Unless noted otherwise, the entry sits under @lhci/cli
+# (Lighthouse CI), which is already on its latest release (0.15.1) and so ships
+# no fix of its own; drop such an entry once @lhci/cli resolves it natively.
 overrides:
   # Path traversal via unsanitized prefix/postfix (high) and arbitrary write via
   # a symlinked `dir` (low). Pulled in at 0.0.33 (external-editor -> inquirer)
@@ -39,3 +39,10 @@ overrides:
   # 6 -> 8 range; v8 needs Node >= 20 and this repo is on 22 (.node-version and
   # netlify.toml both), so aligning on 8 satisfies the peer without cost.
   proxy-agent: ^8.0.2
+  # Four SSRF / host-confusion advisories (GHSA-f65p-4m7j-42xc, GHSA-fph4-wmhf-6fwf,
+  # GHSA-jqff-g426-hqxp, GHSA-5jgf-p345-68v8) in fast-uri < 3.1.6, all fixed in
+  # 3.1.6. Reaches us dev-only through @astrojs/check -> @astrojs/language-server
+  # -> volar-service-yaml -> yaml-language-server -> ajv@8.20.0, which asks for
+  # fast-uri ^3.0.1, so 3.1.6 is a drop-in patch. Drop this once ajv (or the
+  # language-server chain) ships a version pulling >= 3.1.6 on its own.
+  fast-uri: ^3.1.6
