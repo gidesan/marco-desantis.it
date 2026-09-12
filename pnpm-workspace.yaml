@@ -46,3 +46,15 @@ overrides:
   # fast-uri ^3.0.1, so 3.1.6 is a drop-in patch. Drop this once ajv (or the
   # language-server chain) ships a version pulling >= 3.1.6 on its own.
   fast-uri: ^3.1.6
+  # GHSA-2883-xcg3-v3hh: unbounded CPU use from empty YAML merge keys. Two
+  # majors are pulled in, so both need a selector override. The 3.x line comes
+  # from @lhci/cli -> @lhci/utils, which asks for ^3.13.1; the 4.x line comes
+  # from astro's own markdown pipeline (@astrojs/internal-helpers), which asks
+  # for ^4.3.0. Both callers only use safeLoad/load, unaffected by the fix.
+  js-yaml@3: ^3.15.2
+  js-yaml@4: ^4.3.2
+  # GHSA-w27v-7q3p-w38r and GHSA-4vpr-x523-8j87: removeScripts in svgo < 4.1.0
+  # incompletely strips executable SVG content. Pulled in at ^4.0.1/^4.0.2 by
+  # astro's asset pipeline and by html-minifier-next; this repo only runs svgo
+  # over its own trusted assets at build time, but 4.1.0 is a drop-in patch.
+  svgo: ^4.1.0
