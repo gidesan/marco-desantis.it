@@ -7,4 +7,5 @@ category: "etnografia"
 slug: "canto-ascensione"
 image: "./covers/canto-ascensione.jpg"
 ---
+
 Quaderni della Berzeffa, n.1.

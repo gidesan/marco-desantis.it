@@ -5,6 +5,7 @@ category: "critica-letteraria"
 slug: "lingua-barese-cantori"
 image: "./covers/lingua-barese-cantori.jpg"
 ---
+
 _La lingua barese e i suoi cantori_, in Gigi De Santis (a cura di),
 _L'ultima Musa del Novecento. Liriche dialettali baresi_ di Francesca
 Romana Capriati, con interventi di Nicola Roncone, Marco Ignazio de

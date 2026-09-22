@@ -7,6 +7,7 @@ category: "critica-letteraria"
 slug: "poesia-istanti-puri"
 image: "./covers/poesia-istanti-puri.jpg"
 ---
+
 In questo monografia il critico e poeta Marco Ignazio de Santis
 ricostruisce il percorso poetico di Ada de Judicibus Lisena dagli esordi
 di _Versi e Fiori di campo_ (1983) fino al florilegio conclusivo della

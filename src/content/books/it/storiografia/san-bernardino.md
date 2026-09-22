@@ -4,4 +4,5 @@ date: "1987"
 category: "storiografia"
 slug: "san-bernardino"
 ---
+
 _Gli studi sulla parrocchia di S. Bernardino_, in «Luce e Vita Documentazione», Molfetta, 1987, n. 1, pp. 113-125.

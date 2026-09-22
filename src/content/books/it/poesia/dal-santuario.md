@@ -7,6 +7,7 @@ category: "poesia"
 slug: "dal-santuario"
 image: "./covers/dal-santuario.jpg"
 ---
+
 > «Un viaggio anche metaforico, oltretutto, epico e spericolato, ma
 > trionfatore per merito della sacra poesia di Orfeo»
 >

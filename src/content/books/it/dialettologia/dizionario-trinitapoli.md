@@ -5,4 +5,5 @@ category: "dialettologia"
 slug: "dizionario-trinitapoli"
 image: "./covers/dizionario-trinitapoli.jpg"
 ---
+
 _Un monumento al vernacolo “casalino“: il “Dizionario del dialetto di Trinitapoli“ di Grazia Stella Elia_, in «La Vallisa», a. XXIII, n. 67-68, Bari, aprile-agosto 2004, pp. 167-170.

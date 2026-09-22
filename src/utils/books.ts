@@ -19,5 +19,7 @@ export function bookImageAlt(
   data: { title: string; translatedTitle?: string; imageAlt?: string },
   tl: ReturnType<typeof createTranslator>,
 ) {
-  return data.imageAlt ?? tl("book.coverAlt", { title: bookDisplayTitle(data) });
+  return (
+    data.imageAlt ?? tl("book.coverAlt", { title: bookDisplayTitle(data) })
+  );
 }

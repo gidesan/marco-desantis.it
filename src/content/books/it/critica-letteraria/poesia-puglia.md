@@ -7,4 +7,5 @@ category: "critica-letteraria"
 slug: "poesia-puglia"
 image: "./covers/poesia-puglia.jpg"
 ---
+
 A cura di Daniele Giancane e Marco I. de Santis.

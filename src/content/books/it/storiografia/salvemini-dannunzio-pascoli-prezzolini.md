@@ -8,6 +8,7 @@ slug: "salvemini-dannunzio-pascoli-prezzolini"
 image: "./covers/salvemini-dannunzio-pascoli-prezzolini.jpg"
 purchaseUrl: "https://edizionihelicon.it/libri/salvemini-d-annunzio-pascoli-prezzolini-c"
 ---
+
 > «Vicende e personaggi. Artisti e intellettuali. Cultura e politica. Il
 > saggio di Marco Ignazio de Santis è una analisi matura e ben condotta
 > sulla cultura italiana del primo Novecento, cultura politica e

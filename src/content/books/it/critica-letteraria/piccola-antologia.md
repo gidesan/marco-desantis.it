@@ -5,6 +5,7 @@ category: "critica-letteraria"
 slug: "piccola-antologia"
 image: "./covers/piccola-antologia.jpg"
 ---
+
 _Piccola antologia "provinciale" di poesia e altro con inediti di
 Rosaria Scardigno_, in Aa., Vv., _Molfetta: spicchi di storia.
 Miscellanea in onore di Vincenzo Valente_, a cura di Marco I. de Santis,

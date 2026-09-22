@@ -8,5 +8,6 @@ category: "poesia"
 slug: "jesen-u-srcu"
 image: "./covers/jesen-u-srcu.jpg"
 ---
+
 Poesie scelte da _Uomini di sempre_ e _Libro mastro_, nella traduzione
 serba di Dragan Mraović.

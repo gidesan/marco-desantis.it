@@ -5,4 +5,5 @@ category: "etnografia"
 slug: "carnevale-ottava-pasqua"
 image: "./covers/carnevale-ottava-pasqua.jpg"
 ---
+
 _Dal Carnevale all'Ottava di Pasqua. Viaggio nei cicli carnevalesco, quaresimale e pasquale_, in «Studi Molfettesi», n. 6-8, gennaio-dicembre 1998, pp. 11-40.

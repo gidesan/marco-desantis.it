@@ -7,6 +7,7 @@ category: "critica-letteraria"
 slug: "fiure-e-spine"
 image: "./covers/fiure-e-spine.jpg"
 ---
+
 _Fiure e spine. Vierse a la barese_ di L. Martino, con _Premessa_ di
 Nicola Roncone e _Introduzione_ e traduzioni di Marco Ignazio de Santis,
 3AR, Bari 2025.

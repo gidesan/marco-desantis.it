@@ -4,4 +4,5 @@ date: "1989"
 category: "storiografia"
 slug: "chiesa-santa-lucia"
 ---
+
 _La chiesa e il monastero di S. Lucia di Molfetta_, in «Luce e Vita Documentazione», Molfetta, 1989, n. 1, pp. 163-165.

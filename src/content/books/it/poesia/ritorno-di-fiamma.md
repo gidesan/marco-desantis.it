@@ -7,6 +7,7 @@ category: "poesia"
 slug: "ritorno-di-fiamma"
 image: "./covers/ritorno-di-fiamma.jpg"
 ---
+
 _Poesie umoristiche e satiriche._
 
 > «Il Ritorno di fiamma di Marco Ignazio de Santis è un libro

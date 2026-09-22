@@ -7,6 +7,7 @@ category: "critica-letteraria"
 slug: "scimmia-pazza-mente"
 image: "./covers/scimmia-pazza-mente.jpg"
 ---
+
 In questo libro il critico e poeta Marco Ignazio de Santis ripercorre
 l'itinerario poetico di Daniele Giancane dal barricadiero e apocalittico
 vaticinio nel brulichìo delle metropoli (_Vedere e non vedere_, 1969;

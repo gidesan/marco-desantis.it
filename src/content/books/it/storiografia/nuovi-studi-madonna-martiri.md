@@ -7,4 +7,5 @@ category: "storiografia"
 slug: "nuovi-studi-madonna-martiri"
 image: "./covers/nuovi-studi-madonna-martiri.jpg"
 ---
+
 Quaderni del Centro Studi Molfettesi, n. 6.

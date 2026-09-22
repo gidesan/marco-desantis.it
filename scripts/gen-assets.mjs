@@ -5,7 +5,10 @@ import sharp from "sharp";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
-const imagesDir = join(dirname(fileURLToPath(import.meta.url)), "../src/images");
+const imagesDir = join(
+  dirname(fileURLToPath(import.meta.url)),
+  "../src/images",
+);
 
 const CREAM = "#f8f6f1";
 const TERRACOTTA = "#b25334";
