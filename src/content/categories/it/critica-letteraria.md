@@ -5,4 +5,4 @@ order: 3
 icon: "critica-letteraria"
 ---
 
-Saggi su autori italiani del Novecento.
+Saggi su autori italiani dell'Ottocento e del Novecento.
