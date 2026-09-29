@@ -58,3 +58,9 @@ overrides:
   # astro's asset pipeline and by html-minifier-next; this repo only runs svgo
   # over its own trusted assets at build time, but 4.1.0 is a drop-in patch.
   svgo: ^4.1.0
+  # NAT64 local-use range 64:ff9b:1::/48 not recognized by any classifier in
+  # ip-address 10.2.0-10.5.0, allowing SSRF / trust-boundary bypass; fixed in
+  # 10.5.1. Reaches us dev-only through @lhci/cli -> proxy-agent ->
+  # pac-proxy-agent -> socks-proxy-agent -> socks, which asks for ^10.0.1, so
+  # 10.5.1 is a drop-in patch. Drop this once socks resolves it natively.
+  ip-address: ^10.5.1
