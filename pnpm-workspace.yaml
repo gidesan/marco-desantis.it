@@ -80,3 +80,9 @@ overrides:
   http-cache-semantics: ^4.2.1
   smol-toml: ^1.8.1
   source-map-js: ^1.2.2
+  # postcss-selector-parser < 7.1.6: quadratic complexity in flat selector
+  # parsing. @tailwindcss/typography pins exactly 6.0.10 and the fix only
+  # exists on the 7.x line, so this is a major bump; typography only uses it
+  # to parse its own selectors, and the built CSS was diffed before/after
+  # (byte-identical). eslint-plugin-astro also resolves 7.1.5, so no selector.
+  postcss-selector-parser: ^7.1.6
