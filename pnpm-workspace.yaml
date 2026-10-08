@@ -64,6 +64,13 @@ overrides:
   # pac-proxy-agent -> socks-proxy-agent -> socks, which asks for ^10.0.1, so
   # 10.5.1 is a drop-in patch. Drop this once socks resolves it natively.
   ip-address: ^10.5.1
+  # Quadratic-time expansion of the `{a},b}` rewrite in brace-expansion causes
+  # CPU denial of service. Two majors are pulled in, so both need a selector
+  # override. The 1.x line (< 1.1.21) comes from @lhci/cli -> chrome-launcher ->
+  # rimraf -> glob 7 -> minimatch 3; the 5.x line (< 5.0.12) from eslint ->
+  # minimatch 10. Both are dev-only and drop-in patches (^1.1.7 / ^5.0.x).
+  brace-expansion@1: ^1.1.21
+  brace-expansion@5: ^5.0.12
   # Batch of dev-/build-time advisories flagged by `pnpm audit`, each fixed by
   # a patch or minor release of the same line, so they are drop-in:
   #   qs < 6.16.0 (@lhci/cli -> express -> body-parser), proxy-addr < 2.0.8 and
