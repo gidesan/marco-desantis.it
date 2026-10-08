@@ -45,7 +45,7 @@ overrides:
   # -> volar-service-yaml -> yaml-language-server -> ajv@8.20.0, which asks for
   # fast-uri ^3.0.1, so 3.1.6 is a drop-in patch. Drop this once ajv (or the
   # language-server chain) ships a version pulling >= 3.1.6 on its own.
-  fast-uri: ^3.1.6
+  fast-uri: ^3.1.8
   # GHSA-2883-xcg3-v3hh: unbounded CPU use from empty YAML merge keys. Two
   # majors are pulled in, so both need a selector override. The 3.x line comes
   # from @lhci/cli -> @lhci/utils, which asks for ^3.13.1; the 4.x line comes
@@ -71,3 +71,19 @@ overrides:
   # minimatch 10. Both are dev-only and drop-in patches (^1.1.7 / ^5.0.x).
   brace-expansion@1: ^1.1.21
   brace-expansion@5: ^5.0.12
+  # Batch of dev-/build-time advisories flagged by `pnpm audit`, each fixed by
+  # a patch or minor release of the same line, so they are drop-in:
+  #   qs < 6.16.0 (@lhci/cli -> express -> body-parser), proxy-addr < 2.0.8 and
+  #   compression < 1.8.2 (@lhci/cli -> express), basic-ftp < 6.2.1
+  #   (lighthouse -> puppeteer -> proxy-agent -> get-uri; FTP is never used),
+  #   devalue < 5.9.3, http-cache-semantics < 4.2.1, smol-toml < 1.8.1 and
+  #   source-map-js < 1.2.2 (all via astro). Drop each once its parent ships
+  #   a release that resolves it natively.
+  qs: ^6.16.0
+  proxy-addr: ^2.0.8
+  compression: ^1.8.2
+  basic-ftp: ^6.2.1
+  devalue: ^5.9.3
+  http-cache-semantics: ^4.2.1
+  smol-toml: ^1.8.1
+  source-map-js: ^1.2.2
