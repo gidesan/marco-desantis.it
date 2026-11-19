@@ -60,10 +60,12 @@ overrides:
   svgo: ^4.1.0
   # NAT64 local-use range 64:ff9b:1::/48 not recognized by any classifier in
   # ip-address 10.2.0-10.5.0, allowing SSRF / trust-boundary bypass; fixed in
-  # 10.5.1. Reaches us dev-only through @lhci/cli -> proxy-agent ->
-  # pac-proxy-agent -> socks-proxy-agent -> socks, which asks for ^10.0.1, so
-  # 10.5.1 is a drop-in patch. Drop this once socks resolves it natively.
-  ip-address: ^10.5.1
+  # 10.5.1; Address6 also matched a zone identifier in quadratic time
+  # (GHSA-rxp7-6hxx-x8q5), fixed in 10.7.4. Reaches us dev-only through
+  # @lhci/cli -> proxy-agent -> pac-proxy-agent -> socks-proxy-agent -> socks,
+  # which asks for ^10.0.1 (even socks 2.8.10), so 10.7.4 is a drop-in patch.
+  # Drop this once socks resolves it natively.
+  ip-address: ^10.7.4
   # Quadratic-time expansion of the `{a},b}` rewrite in brace-expansion causes
   # CPU denial of service. Two majors are pulled in, so both need a selector
   # override. The 1.x line (< 1.1.21) comes from @lhci/cli -> chrome-launcher ->
@@ -74,15 +76,20 @@ overrides:
   # Batch of dev-/build-time advisories flagged by `pnpm audit`, each fixed by
   # a patch or minor release of the same line, so they are drop-in:
   #   qs < 6.16.1 (@lhci/cli -> express -> body-parser), proxy-addr < 2.0.8 and
-  #   compression < 1.8.2 (@lhci/cli -> express), basic-ftp < 6.2.1
-  #   (lighthouse -> puppeteer -> proxy-agent -> get-uri; FTP is never used),
+  #   compression < 1.8.2 (@lhci/cli -> express), basic-ftp < 6.2.4
+  #   (GHSA-5pm8-86m8-9m6r, GHSA-r4jh-29pc-gfqr; lighthouse -> puppeteer -> proxy-agent -> get-uri; FTP is never used),
   #   devalue < 5.9.3, http-cache-semantics < 4.2.1, smol-toml < 1.8.1 and
   #   source-map-js < 1.2.2 (all via astro). Drop each once its parent ships
   #   a release that resolves it natively.
   qs: ^6.16.1
+  # body-parser 1.x < 1.20.9: DoS via trailing bytes after a compressed request
+  # body (GHSA-27r3-jxmh-p828). Dev-only via @lhci/cli -> express 4, which pins
+  # body-parser ~1.20.5 (even express 4.22.3), so no parent bump fixes it; the
+  # patch stays on the same 1.20 line. Drop once express resolves it natively.
+  body-parser@1: '>=1.20.9 <2'
   proxy-addr: ^2.0.8
   compression: ^1.8.2
-  basic-ftp: ^6.2.1
+  basic-ftp: ^6.2.4
   devalue: ^5.9.3
   http-cache-semantics: ^4.2.1
   smol-toml: ^1.8.1
